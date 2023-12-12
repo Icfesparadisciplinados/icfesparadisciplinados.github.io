@@ -4,7 +4,7 @@
 <title>Page Title</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-    @font-face {
+  @font-face {
     font-family: ps_bold;
     src: url(/ps_b.ttf);
     font-style: bold;
@@ -25,14 +25,14 @@
     opacity: 1;
     background-repeat: repeat;
     background-color: #111;  
-    color: #fff;
-    padding-top: 15%;    
+    color: #fff;        
     height: 100vh;
   }
 
   h2 {font-family: ps_bold;}
 
   .t {        
+    height: 70%;
     width: 100%;
     place-content: center;
     display: flex;
@@ -62,15 +62,13 @@
     }
     .b {
       place-content: left;
-      left: 20px;
-      bottom: 20px;
+      margin-left: 20px;
     }
   }
 
   @media (min-width: 413px) {
     .b {
-      place-content: center;
-      bottom: 10px;  
+      place-content: center;   
     }
   }
 
@@ -79,12 +77,12 @@
     transform: rotate(90deg);
   }
 
-  .b {
-    position: absolute;
-        
-    right: 0px;
-    font-size: 24px;
+  .b {    
+    padding-top: 10%;
+    font-size: 18px;
     width: 100%;
+    height: 30%;
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
   }
@@ -101,9 +99,9 @@
       <h2 class="rotate">MATERIAL</h2>
     </div>
     <div class="r">
-      <h2 class="e" id="e0">POR MATERIAS</h2>
-      <h2 class="e" id="e1">COMPLETO</h2>
-      <h2 class="e" id="e2">ALTERNO</h2>      
+      <h2 class="e">POR MATERIAS</h2>
+      <h2 class="e">COMPLETO</h2>
+      <h2 class="e">ALTERNO</h2>      
     </div>
   </div>
   <h2 class="b">CONSEJOS y AYUDAS</h2>
