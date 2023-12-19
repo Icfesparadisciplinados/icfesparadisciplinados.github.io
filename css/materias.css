@@ -1,0 +1,101 @@
+  @font-face {
+    font-family: ps_bold;
+    src: url(/font/ps_b.ttf);
+    font-style: bold;
+    font-weight: bold;
+  }
+  
+  * {
+    font-family: ps_bold;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  body {                
+    background-image: url("/img/logoicfes.svg");
+    background-size: 110px;    
+    background-repeat: repeat;
+    background-color: #111;         
+    color: #fff;        
+    min-width: 800px;
+    height: 100vh;
+  }  
+
+  .home {
+    position: relative;
+    width: 35px;  
+    height: 35px; 
+    margin-left: 15px;
+    margin-top: 15px;
+    padding: 17px;            
+    background-size: 35px 35px;     
+    background-image: url("/img/home.svg");     
+  }  
+
+  .home:hover {
+    background-image: url("/img/homeHV.svg");
+  }
+
+  .opciones {    
+    width: 707px;
+    display: flex;
+    align-items: center;
+    font-size:20px;
+    float: right;        
+    margin-top: 11px;
+    margin-right: 18px;
+  }
+
+  .opc{
+    margin-top: 4px;
+    cursor: pointer;
+  }
+
+  .opcImg {
+    width: 30px;
+    margin-left: 25px;
+    margin-right: 5px;    
+    margin-top: 5px;    
+    cursor: pointer;
+  }    
+
+  table {            
+    margin-top: 30px;
+    margin-left: 20px;    
+    width: 95%;    
+    color: #a9fac2;    
+  }  
+  
+  td {
+    padding-left: 10px;
+    padding-right: 10px;   
+    padding-top: 2px;   
+    padding-bottom: 2px;   
+    text-align: center;     
+    border: solid 1px;    
+    border-color: #fff;
+    color: #fff;
+    border-radius: 50px;   
+  }
+
+  .toTop {
+    bottom: 10px;
+    position: absolute;
+    margin-left: 50%;  
+    margin-top: 25px;
+    padding-bottom: 25px;        
+  }
+
+  .imgToTop {
+    cursor: pointer;
+    width: 30px;     
+  }
+
+  

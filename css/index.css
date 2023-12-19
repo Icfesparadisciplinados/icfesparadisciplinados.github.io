@@ -1,0 +1,101 @@
+@font-face {
+  font-family: ps_bold;
+  src: url(/font/ps_b.ttf);
+  font-style: bold;
+  font-weight: bold;
+}
+
+* {
+  font-family: ps_bold;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 413px;
+  color: #fff;
+  height: 100vh;
+}
+
+.background {
+  position: absolute;
+  background-image: url("/img/logoicfes.svg");
+  background-size: 110px;
+  background-repeat: repeat;
+  background-color: #111;  
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.t {
+  height: 70%;
+  width: 100%;
+  place-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.r {
+  float: right;
+  place-content: center;
+}
+
+.e {
+  margin-left: 11px;
+  font-size: 35px;
+}
+
+.e:hover {
+  color: #004fa7;
+  transform: scale(1.01);
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 413px) {
+  .l {
+    margin-left: -170px;
+  }
+  .b {
+    place-content: left;
+    left: 20px;
+  }
+}
+
+@media (min-width: 413px) {
+  .b {
+    place-content: center;
+  }
+}
+
+.l {
+  border-top: 5px solid #004fa7;
+  transform: rotate(90deg);
+}
+
+.rotate {
+  font-size: 24px;
+  cursor: default;
+}
+
+.b {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bc {
+  font-size: 18px;
+}
+
+.bc:hover {
+  color: #004fa7;
+  transition: all 0.3s ease-in-out;
+}
