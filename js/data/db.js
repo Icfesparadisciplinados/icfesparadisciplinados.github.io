@@ -337,29 +337,29 @@ const enlaces = [
 const contras = { 1004631085: "JJJJ", 27190593: "AAAA", 1004631394: "SSSS" };
 
 const elimPalabra = {
-  matematicas: "",
-  lectura: "",
-  naturales: "",
-  sociales: "",
-  ingles: "",
+  matematicas: "MAT",
+  lectura: "LEC",
+  naturales: "NAT",
+  sociales: "SOC",
+  ingles: "ING",
   bgu: "Bachillerato General Unificado",
   repilos: "Repilos",  
-  // S: "MAT",
-  // lecDDtura: "LEC",
-  // natu234rales: "NAT",
-  // socAiales: "SOC",
-  // inglFWEBes: "ING",
-  // mateKSVCmaticas: "MAT",
-  // leXCVctura: "LEC",
-  // natDSFGurales: "NAT",
-  // soc345iales: "SOC",
-  // inLEVCgles: "ING",
-  // matCVBematicas: "MAT",
-  // lectXUBura: "LEC",
-  // natu234GVales: "NAT",
-  // sociZDTJales: "SOC",
-  // ingZE67Jles: "ING",
 };
+
+var titulos = [];
+
+for (const enlace of enlaces) {
+  for (const elemento of enlace[0].split(" ")) {
+    titulos.push(elemento.toLowerCase());
+  }
+}
+
+titulos = titulos.reduce((actual, elemento) => {
+  if (actual.indexOf(elemento) === -1) {
+    actual.push(elemento);
+  }
+  return actual;
+}, []);
 
 function elimPalabraValues() {
   var valores = [];
@@ -415,20 +415,19 @@ function dbMaterias(variable) {
   return result;
 }
 
-var titulos = [];
-
-for (const enlace of enlaces) {
-  for (const elemento of enlace[0].split(" ")) {
-    titulos.push(elemento.toLowerCase());
+function dbBuscar(variable) {  
+  var result = [];
+  for (const valor of titulos) {
+    if (variable.toLowerCase().includes(valor)) {
+      for (const enlace of enlaces) {
+        if (enlace[0].toLowerCase().includes(valor)) {
+          result.push(arreglarListaMaterias(enlace));
+        }
+      }
+    }
   }
+  return result;
 }
-
-titulos = titulos.reduce((actual, elemento) => {
-  if (actual.indexOf(elemento) === -1) {
-    actual.push(elemento);
-  }
-  return actual;
-}, []);
 
 function buscar(valor) {
   if (valor.length > 2) {

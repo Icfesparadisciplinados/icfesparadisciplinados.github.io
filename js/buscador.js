@@ -4,6 +4,8 @@ const contenido = document.querySelector(".contenido");
 const contBuscador = document.querySelector(".contBuscador");
 const opciones = document.querySelector(".opciones");
 
+// buscador.focus()
+
 function limpiarSugerencias() {
   for (const elemento of document.querySelectorAll(".sugerencia")) {
     elemento.remove();
@@ -31,13 +33,10 @@ document.addEventListener("click", () => {
   limpiarSugerencias()
 })
 
-function crearTabla() {
-  document.querySelector(".prueba").textContent = buscador.value + "exelente";
-}
 
 buscador.addEventListener("keydown", function(event) {
   if (event.keyCode === 13) {
-    crearTabla()
+    generarListado(buscador.value);
   }
 });
 
@@ -50,7 +49,7 @@ buscarBoton.addEventListener("mouseenter", function(event) {
 })
 
 buscarBoton.addEventListener("click", function(event) {
-  crearTabla()
+  generarListado(buscador.value);
 })
 
 function addOpciones(){
@@ -111,12 +110,6 @@ masOpcBot.addEventListener("click", () => {
     })    
   }  
 })
-
-
-
-
-
-
 
 function cambiarImagen(elemento, imagen, src, color) {
   elemento.src = src;
@@ -201,7 +194,7 @@ function addFila(nom, link, numPag, tamMB) {
     scaleX: 0,
   }, "linear");
 
-  if (window.innerHeight <= document.querySelector("table").clientHeight){
+  if (window.innerHeight <= document.getElementById("mainTable").clientHeight){
     document.querySelector(".toTop").style.display = "block";
   } else {
     document.querySelector(".toTop").style.display = "none";
@@ -211,18 +204,16 @@ function addFila(nom, link, numPag, tamMB) {
 }
 
 function generarListado(por) {
-  const tabla = document.querySelector("table");
+  const tabla = document.getElementById("mainTable");
   const filas = tabla.querySelectorAll("tr");
   for (const fila of filas) {
     fila.remove();
   }
-  const listado = dbMaterias(por);
+  const listado = dbBuscar(por);
   for (const i of listado) {
     addFila(i[0], i[1], i[2], i[3]);
   }
 }
-
-generarListado("mat");
 
 var imgToTop = document.querySelector(".imgToTop");
 

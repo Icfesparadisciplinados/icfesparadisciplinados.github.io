@@ -95,12 +95,13 @@
     cursor: url('/img/disciplina.png'), auto;    
   }
 
-  table {            
+  table {     
+    min-width: 800px;       
     margin-top: 30px;
-    margin-left: 20px;   
-    padding-bottom: 25px; 
-    width: 95%;    
-    color: #a9fac2;    
+    margin-left: 2vw;   
+    margin-right: 2vw;   
+    width: 96vw; 
+    padding-bottom: 25px;    
   }  
   
   td {
