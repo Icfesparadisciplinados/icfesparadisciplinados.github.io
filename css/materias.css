@@ -11,12 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  a {
-    text-decoration: none;
-    color: #fff;
-  }
+  }  
 
   body {                
     background-image: url("/img/logoicfes.svg");
@@ -27,6 +22,32 @@
     min-width: 800px;
     height: 100vh;
   }  
+
+  ::-webkit-scrollbar {
+    width:  14px;
+    height: 14px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #111;        
+  }
+  
+  ::-webkit-scrollbar-thumb {  
+    background-color: #111;  
+    border-radius: 7px;      
+    border: 2px solid #fff;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {  
+    background-color: #111;  
+    border-radius: 7px;      
+    border: 3px solid #004fa7;  
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 
   .home {
     position: relative;
@@ -66,9 +87,18 @@
     cursor: pointer;
   }    
 
+  .mensajeSeleccione {
+    display: block;
+    margin-top: 150px;
+    font-size: 18px;
+    text-align: center;
+    cursor: url('/img/disciplina.png'), auto;    
+  }
+
   table {            
     margin-top: 30px;
-    margin-left: 20px;    
+    margin-left: 20px;   
+    padding-bottom: 25px; 
     width: 95%;    
     color: #a9fac2;    
   }  
@@ -86,16 +116,12 @@
   }
 
   .toTop {
-    bottom: 10px;
-    position: absolute;
-    margin-left: 50%;  
-    margin-top: 25px;
+    margin-left: 50%;      
     padding-bottom: 25px;        
+    display: none;
   }
 
   .imgToTop {
     cursor: pointer;
     width: 30px;     
   }
-
-  

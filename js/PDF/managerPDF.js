@@ -1,40 +1,43 @@
-// function genPdf() {
-//   var doc = new jsPDF()
-//   doc.text(20, 20, "Hi Sun")
-//   doc.save("Hi Sun.pdf")
-// }
+const res = document.querySelector(".res");
+const imput = document.querySelector(".input");
+const nombresIm = document.querySelector(".nombresIm");
+const enlacesIm = document.querySelector(".enlacesIm");
+const pesosIm = document.querySelector(".pesosIm");
 
-// async function numeroDePaginas() {
-//   const PDFJS = require('pdf.min.mjs')
-//   const pdf = PDFJS.getDocument("TYT 2016 SOCIALES.pdf")
-//   const numPages = pdf.numPages
-//   escribir(numPages)
-// }
+imput.addEventListener("input", () => {
+  arreglar(imput.value);
+});
 
-// async function numeroDePaginas() {
-//   try {
-//     const pdf = await PDFJS.getDocument("TYT 2016 SOCIALES.pdf")
-//     const numPages = pdf.numPages
-//     escribir(numPages)
-//   } catch (error) {
-//     escribir(error)
-//   }
-// }
+function arreglar(value) {
+  const elementos = value.split("\n");
+  for (let elemento of elementos) {
+    if (elemento) {
+      const fila = document.createElement("tr");
+      const aux = elemento.split(",");
+      const colNombre = document.createElement("td");
+      colNombre.textContent = aux[2].replace('"', "").replace('"', "").replace('.pdf', "");
+      fila.appendChild(colNombre);
+      const colEnlace = document.createElement("td");
+      colEnlace.textContent = aux[3].substring(32, 65);
+      fila.appendChild(colEnlace);
+      const casillaWhite = document.createElement("td");
+      casillaWhite.textContent = " ";
+      fila.appendChild(casillaWhite);
+      const colPeso = document.createElement("td");
+      if (aux[4].includes("KB")) {
+        colPeso.textContent = "1";
+        fila.appendChild(colPeso);
+      } else {
+        if (aux[4].includes(".")) {
+          colPeso.textContent = aux[4].split(".")[0].replace('"', "");
+          fila.appendChild(colPeso);
+        } else {
+          colPeso.textContent = aux[4].split(" ")[0].replace('"', "");
+          fila.appendChild(colPeso);
+        }
+      }
 
-// numeroDePaginas()
-// genPdf()
-
-// function escribir(text) {
-//   const res = document.querySelector(".res")
-//   res.textContent = res.textContent + text
-// }
-
-// function achicar(lista) {
-//   const longitud = lista.length
-//   for (let i = 0 i < longitud i++) {
-//     escribir(lista[i])
-//     escribir("<br>")
-//   }
-// }
-
-// achicar(lista)
+      document.querySelector("table").appendChild(fila);
+    }
+  }
+}

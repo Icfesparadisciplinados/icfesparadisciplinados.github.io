@@ -1,3 +1,123 @@
+const buscador = document.querySelector(".buscador");
+const buscarBoton = document.querySelector(".buscar");
+const contenido = document.querySelector(".contenido");
+const contBuscador = document.querySelector(".contBuscador");
+const opciones = document.querySelector(".opciones");
+
+function limpiarSugerencias() {
+  for (const elemento of document.querySelectorAll(".sugerencia")) {
+    elemento.remove();
+  }
+}
+
+buscador.addEventListener("input", (event) => {
+  limpiarSugerencias()
+  for (const element of buscar(buscador.value.toString())) {
+    if (element != buscador.value) {
+      const p = document.createElement("div");
+    p.className = "sugerencia";
+    p.textContent = element;
+    p.addEventListener("click", () => {
+      buscador.value = p.textContent
+      limpiarSugerencias()
+      buscador.focus()
+    });      
+    contBuscador.append(p);
+    }    
+  }
+});
+
+document.addEventListener("click", () => {
+  limpiarSugerencias()
+})
+
+function crearTabla() {
+  document.querySelector(".prueba").textContent = buscador.value + "exelente";
+}
+
+buscador.addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
+    crearTabla()
+  }
+});
+
+buscarBoton.addEventListener("mouseleave", function(event) {
+  buscarBoton.src = "/img/buscar.svg"
+});
+
+buscarBoton.addEventListener("mouseenter", function(event) {
+  buscarBoton.src = "/img/buscarHV.svg"
+})
+
+buscarBoton.addEventListener("click", function(event) {
+  crearTabla()
+})
+
+function addOpciones(){
+  const opciones = elimPalabraValues()
+  for (const opcion of opciones) {
+    addOpcion(opcion)
+  }
+}
+
+function addOpcion(nom) {
+  const texto = document.createElement("td");
+  texto.textContent = nom;      
+  const div = document.createElement("div");
+  div.appendChild(texto)
+  div.setAttribute("class", "opcion");
+  const fila = document.createElement("tr");
+  fila.appendChild(div);  
+  document.getElementById("opciones").appendChild(fila);
+}
+
+addOpciones()
+
+const masOpcBot = document.querySelector(".masOpcBot")
+const indicador = document.getElementById("indicador")
+
+const auxAlturaMasOpc = document.querySelector(".masOpc").clientHeight
+const alturaMasOpc = auxAlturaMasOpc + ((auxAlturaMasOpc) * 0.1)
+document.querySelector(".masOpc").style.top = - alturaMasOpc + "px";
+
+masOpcBot.addEventListener("mouseenter", () => {  
+  masOpcBot.src = "/img/plusHV.svg";
+})
+
+masOpcBot.addEventListener("mouseleave", () => {  
+  masOpcBot.src = "/img/plus.svg";
+})
+
+masOpcBot.addEventListener("click", () => {  
+  if (indicador.textContent == "open"){
+    indicador.textContent = "close"
+    gsap.to(masOpcBot, {
+      rotate: 0,
+      duration: 1,
+    })
+    gsap.to(".masOpc", {
+      y: 0,
+      duration: 1,
+    })    
+  } else {
+    indicador.textContent = "open"
+    gsap.to(masOpcBot, {
+      rotate: -405,
+      duration: 1,
+    })
+    gsap.to(".masOpc", {
+      y: alturaMasOpc + 12,
+      duration: 1,
+    })    
+  }  
+})
+
+
+
+
+
+
+
 function cambiarImagen(elemento, imagen, src, color) {
   elemento.src = src;
   imagen.style.color = color;
@@ -24,82 +144,6 @@ function hover(elemento, imagen, srcNor, srcHov, colorNor, colorHov) {
     cambiarImagen(elemento, imagen, srcNor, colorNor)
   );
 }
-
-function superHover(nombre, srcNor, srcHov, colorNor, colorHov) {
-  hover(
-    document.querySelector(`.${nombre}`),
-    document.querySelector(`.${nombre}Tex`),
-    srcNor,
-    srcHov,
-    colorNor,
-    colorHov
-  );
-}
-
-function supSupHover() {
-  superHover("mat", "/img/mat.svg", "/img/matHV.svg", "#fff", "#fbca8f");
-  superHover("lec", "/img/lec.svg", "/img/lecHV.svg", "#fff", "#cca8fa");
-  superHover("nat", "/img/nat.svg", "/img/natHV.svg", "#fff", "#a9fac2");
-  superHover("soc", "/img/soc.svg", "/img/socHV.svg", "#fff", "#f6a7c2");
-  superHover("ing", "/img/ing.svg", "/img/ingHV.svg", "#fff", "#f9f5ab");
-}
-
-supSupHover();
-
-function auxAjustarHover(materia, color) {
-  for (const cell of document.querySelectorAll("td")) {
-    cell.style.borderColor = color;
-    cell.style.color = color;
-  }
-  superHover(
-    materia,
-    `/img/${materia}HV.svg`,
-    `/img/${materia}HV.svg`,
-    color,
-    color
-  );
-}
-
-function ajustarHover(materia, ref) {
-  document.querySelector(ref).addEventListener("click", function () {
-    supSupHover();
-    generarListado(materia);
-    for (const materias of ["mat", "lec", "nat", "soc", "ing"]) {
-      if (materias !== materia) {
-        cambiarImagen2(materias, "#fff");
-      }
-    }
-    switch (materia) {
-      case "mat":
-        auxAjustarHover(materia, "#fbca8f");
-        break;
-      case "lec":
-        auxAjustarHover(materia, "#cca8fa");
-        break;
-      case "nat":
-        auxAjustarHover(materia, "#a9fac2");
-        break;
-      case "soc":
-        auxAjustarHover(materia, "#f6a7c2");
-        break;
-      case "ing":
-        auxAjustarHover(materia, "#f9f5ab");
-        break;
-      default:
-    }
-  });
-}
-
-ajustarHover("mat", ".matTex");
-ajustarHover("lec", ".lecTex");
-ajustarHover("nat", ".natTex");
-ajustarHover("soc", ".socTex");
-ajustarHover("ing", ".ingTex");
-ajustarHover("mat", ".mat");
-ajustarHover("lec", ".lec");
-ajustarHover("nat", ".nat");
-ajustarHover("soc", ".soc");
-ajustarHover("ing", ".ing");
 
 function addFila(nom, link, numPag, tamMB) {
   const nombre = document.createElement("td");
@@ -159,13 +203,11 @@ function addFila(nom, link, numPag, tamMB) {
 
   if (window.innerHeight <= document.querySelector("table").clientHeight){
     document.querySelector(".toTop").style.display = "block";
-    document.querySelector(".mensajeSeleccione").style.display = "none";
   } else {
     document.querySelector(".toTop").style.display = "none";
-    document.querySelector(".mensajeSeleccione").style.display = "block";
   }
 
-  document.querySelector("table").appendChild(fila);
+  document.getElementById("mainTable").appendChild(fila);
 }
 
 function generarListado(por) {
@@ -180,7 +222,7 @@ function generarListado(por) {
   }
 }
 
-// generarListado("mat");
+generarListado("mat");
 
 var imgToTop = document.querySelector(".imgToTop");
 

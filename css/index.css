@@ -13,6 +13,27 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width:  14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;        
+}
+
+::-webkit-scrollbar-thumb {  
+  background-color: #111;  
+  border-radius: 7px;      
+  border: 2px solid #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {  
+  background-color: #111;  
+  border-radius: 7px;      
+  border: 3px solid #004fa7;  
+}
+
 body {
   min-width: 413px;
   color: #fff;
