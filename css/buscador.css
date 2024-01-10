@@ -115,35 +115,28 @@
   .sugerencia:hover {
     color: #004fa7;    
     border: solid 1px #004fa7;     
-  }
-  
-  .contMoreOpc {     
-    top: 0px;    
-    right: 0px;       
-    position: fixed;    
-    justify-content: center;    
   }  
 
-  .buscar{    
+  .buscarBoton{    
     cursor: pointer;
     position: absolute;    
     width: 28px;      
     right: -45px;
     top: 16px;    
-  }
+  }  
 
   .masOpcBot {
+    z-index: 999;
     position: absolute;
     top: 15px;
     right: 15px;
     width: 30px;
-    height: 30px;  
-    color: #fff;
-    border-radius: 5px;
+    height: 30px;          
     cursor: pointer;
   }
 
   .masOpc{
+    z-index: 998;
     background-image: url("/img/logoicfes.svg");
     background-size: 110px;    
     background-repeat: repeat;
@@ -155,33 +148,28 @@
     border-radius: 7px;      
     border: 2px solid #004fa7; 
     text-align: center;
+    justify-content: center;
+    align-content: center;
   }
-  
-  .masOpcOpc {
-    cursor: pointer;
-  }
-  
-  .masOpcOpc:hover {  
-    color: #004fa7;
-    font-size: 30px;
-  }
-  
+
   #indicador {
     color: #00000000;
-    height: 20px;     
-  }
+    height: 30px;     
+  }    
 
   .opcion {    
     color: #fff;
+    margin-top: 5px;
+    border-radius: 7px;      
+    border: 1px solid #fff;
     text-transform: uppercase;
+    padding: 5px;
     cursor: pointer;
   }
 
   .opcion:hover { 
     color: #004fa7;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    border: 1px solid #004fa7;
   }
 
   #mainTable {            
@@ -214,4 +202,11 @@
   .imgToTop {
     cursor: pointer;
     width: 30px;     
+  }
+
+  .auxiliar {    
+    width: 100%;
+    text-align: center;     
+    margin-top: 50px;
+    display: none;
   }

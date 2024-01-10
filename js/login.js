@@ -1,3 +1,5 @@
+// Developed by Juan Manuel Díaz Gómez
+
 const ced = document.querySelector(".ced");
 const ctr = document.querySelector(".ctr");
 const boton = document.querySelector(".boton");

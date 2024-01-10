@@ -1,8 +1,11 @@
 const buscador = document.querySelector(".buscador");
-const buscarBoton = document.querySelector(".buscar");
+const buscarBoton = document.querySelector(".buscarBoton");
 const contenido = document.querySelector(".contenido");
 const contBuscador = document.querySelector(".contBuscador");
-const opciones = document.querySelector(".opciones");
+const masOpcBot = document.querySelector(".masOpcBot")
+const indicador = document.getElementById("indicador")
+const imgToTop = document.querySelector(".imgToTop");
+const auxiliar = document.querySelector(".auxiliar");
 
 // buscador.focus()
 
@@ -12,7 +15,7 @@ function limpiarSugerencias() {
   }
 }
 
-buscador.addEventListener("input", (event) => {
+buscador.addEventListener("input", () => {
   limpiarSugerencias()
   for (const element of buscar(buscador.value.toString())) {
     if (element != buscador.value) {
@@ -22,7 +25,7 @@ buscador.addEventListener("input", (event) => {
     p.addEventListener("click", () => {
       buscador.value = p.textContent
       limpiarSugerencias()
-      buscador.focus()
+      generarListado(buscador.value.toLowerCase());
     });      
     contBuscador.append(p);
     }    
@@ -36,7 +39,7 @@ document.addEventListener("click", () => {
 
 buscador.addEventListener("keydown", function(event) {
   if (event.keyCode === 13) {
-    generarListado(buscador.value);
+    generarListado(buscador.value.toLowerCase());
   }
 });
 
@@ -49,31 +52,39 @@ buscarBoton.addEventListener("mouseenter", function(event) {
 })
 
 buscarBoton.addEventListener("click", function(event) {
-  generarListado(buscador.value);
+  generarListado(buscador.value.toLowerCase());
 })
 
 function addOpciones(){
-  const opciones = elimPalabraValues()
-  for (const opcion of opciones) {
-    addOpcion(opcion)
+  const palabras = valuesPalabras()
+  for (const palabra of palabras) {
+    addOpcion(palabra)
   }
 }
 
-function addOpcion(nom) {
-  const texto = document.createElement("td");
-  texto.textContent = nom;      
-  const div = document.createElement("div");
-  div.appendChild(texto)
-  div.setAttribute("class", "opcion");
+function addOpcion(opcion) {
+  const columna = document.createElement("p");
+  columna.textContent = opcion[0];      
+  columna.setAttribute("class", "opcion");
+  columna.addEventListener("click", () => {    
+    buscador.value = opcion[1];
+    indicador.textContent = "close"
+    generarListado(opcion[1].toLowerCase());
+    gsap.to(masOpcBot, {
+      rotate: 0,
+      duration: 1,
+    })
+    gsap.to(".masOpc", {
+      y: 0,
+      duration: 1,
+    })      
+  })
   const fila = document.createElement("tr");
-  fila.appendChild(div);  
+  fila.appendChild(columna);  
   document.getElementById("opciones").appendChild(fila);
 }
 
 addOpciones()
-
-const masOpcBot = document.querySelector(".masOpcBot")
-const indicador = document.getElementById("indicador")
 
 const auxAlturaMasOpc = document.querySelector(".masOpc").clientHeight
 const alturaMasOpc = auxAlturaMasOpc + ((auxAlturaMasOpc) * 0.1)
@@ -102,11 +113,11 @@ masOpcBot.addEventListener("click", () => {
     indicador.textContent = "open"
     gsap.to(masOpcBot, {
       rotate: -405,
-      duration: 1,
+      duration: 2,
     })
     gsap.to(".masOpc", {
       y: alturaMasOpc + 12,
-      duration: 1,
+      duration: 2,
     })    
   }  
 })
@@ -114,13 +125,6 @@ masOpcBot.addEventListener("click", () => {
 function cambiarImagen(elemento, imagen, src, color) {
   elemento.src = src;
   imagen.style.color = color;
-}
-
-function cambiarImagen2(nombre, color) {
-  texto = document.querySelector(`.${nombre}Tex`);
-  imagen = document.querySelector(`.${nombre}`);
-  imagen.src = `/img/${nombre}.svg`;
-  texto.style.color = color;
 }
 
 function hover(elemento, imagen, srcNor, srcHov, colorNor, colorHov) {
@@ -193,29 +197,39 @@ function addFila(nom, link, numPag, tamMB) {
     opacity: 0,
     scaleX: 0,
   }, "linear");
-
+  document.querySelector(".toTop").style.display = "none";  
   if (window.innerHeight <= document.getElementById("mainTable").clientHeight){
     document.querySelector(".toTop").style.display = "block";
-  } else {
-    document.querySelector(".toTop").style.display = "none";
   }
 
   document.getElementById("mainTable").appendChild(fila);
 }
 
 function generarListado(por) {
+  document.querySelector(".toTop").style.display = "none";
   const tabla = document.getElementById("mainTable");
   const filas = tabla.querySelectorAll("tr");
   for (const fila of filas) {
     fila.remove();
   }
-  const listado = dbBuscar(por);
-  for (const i of listado) {
-    addFila(i[0], i[1], i[2], i[3]);
-  }
+  const datos = dbBuscar(por)
+  if (datos.length > 0) {
+    auxiliar.style.display = "none"
+    for (const enlace of datos){
+      auxiliar.innerHTML = ""
+      addFila(enlace[0], enlace[1], enlace[2], enlace[3])
+    }
+  } else {
+    // N O  B O R R A R
+    // var result = []
+    // for (let i of allClavesF()){      
+    //   result.push(i + "<br>")
+    // }
+    // auxiliar.innerHTML = result
+    auxiliar.innerHTML = `No se encuantra "${por.toUpperCase()}" entre los archivos.`
+    auxiliar.style.display = "block"
+  }  
 }
-
-var imgToTop = document.querySelector(".imgToTop");
 
 imgToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0 });

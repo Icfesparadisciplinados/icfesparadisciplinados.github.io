@@ -56,7 +56,7 @@ a {
 }
 
 .t {
-  height: 70%;
+  height: 95vh;  
   width: 100%;
   place-content: center;
   display: flex;
@@ -105,18 +105,31 @@ a {
   cursor: default;
 }
 
-.b {
-  width: 100%;
-  height: 30%;
-  display: flex;
-  flex-wrap: wrap;
+.masOpcBot {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: 30px;
+  height: 30px;  
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.bc {
-  font-size: 18px;
+.masOpc{
+  position: absolute;
+  bottom: 55px;
+  left: -180px;  
+}
+.masOpcOpc {
+  cursor: pointer;
 }
 
-.bc:hover {
+.masOpcOpc:hover {  
   color: #004fa7;
-  transition: all 0.3s ease-in-out;
+  font-size: 30px;
+}
+
+#indicador {
+  color: #00000000;
 }

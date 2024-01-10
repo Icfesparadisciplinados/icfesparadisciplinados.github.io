@@ -37,11 +37,11 @@ function superHover(nombre, srcNor, srcHov, colorNor, colorHov) {
 }
 
 function supSupHover() {
-  superHover("mat", "/img/mat.svg", "/img/matHV.svg", "#fff", "#fbca8f");
-  superHover("lec", "/img/lec.svg", "/img/lecHV.svg", "#fff", "#cca8fa");
-  superHover("nat", "/img/nat.svg", "/img/natHV.svg", "#fff", "#a9fac2");
-  superHover("soc", "/img/soc.svg", "/img/socHV.svg", "#fff", "#f6a7c2");
-  superHover("ing", "/img/ing.svg", "/img/ingHV.svg", "#fff", "#f9f5ab");
+  superHover("mat", "/img/mat.svg", "/img/matHV.svg", "#fff", "#fcb05c");
+  superHover("lec", "/img/lec.svg", "/img/lecHV.svg", "#fff", "#8c70ff");
+  superHover("nat", "/img/nat.svg", "/img/natHV.svg", "#fff", "#14eb8c");
+  superHover("soc", "/img/soc.svg", "/img/socHV.svg", "#fff", "#ff91bd");
+  superHover("ing", "/img/ing.svg", "/img/ingHV.svg", "#fff", "#fced87");
 }
 
 supSupHover();
@@ -62,8 +62,7 @@ function auxAjustarHover(materia, color) {
 
 function ajustarHover(materia, ref) {
   document.querySelector(ref).addEventListener("click", function () {
-    supSupHover();
-    generarListado(materia);
+    supSupHover();    
     for (const materias of ["mat", "lec", "nat", "soc", "ing"]) {
       if (materias !== materia) {
         cambiarImagen2(materias, "#fff");
@@ -71,19 +70,27 @@ function ajustarHover(materia, ref) {
     }
     switch (materia) {
       case "mat":
-        auxAjustarHover(materia, "#fbca8f");
+        generarListado("matem", true);
+        auxAjustarHover(materia, "#fcb05c");
         break;
       case "lec":
-        auxAjustarHover(materia, "#cca8fa");
+        generarListado("lect", true);        
+        auxAjustarHover(materia, "#8c70ff");
         break;
-      case "nat":
-        auxAjustarHover(materia, "#a9fac2");
+      case "nat":        
+        generarListado("natu", true);
+        generarListado("fisi"), false;
+        generarListado("quim"), false;
+        generarListado("biol"), false;
+        auxAjustarHover(materia, "#14eb8c");
         break;
-      case "soc":
-        auxAjustarHover(materia, "#f6a7c2");
+      case "soc":        
+        generarListado("soci", true);
+        auxAjustarHover(materia, "#ff91bd");
         break;
-      case "ing":
-        auxAjustarHover(materia, "#f9f5ab");
+      case "ing":        
+        generarListado("ingl", true);
+        auxAjustarHover(materia, "#fced87");
         break;
       default:
     }
@@ -103,7 +110,7 @@ ajustarHover("ing", ".ing");
 
 function addFila(nom, link, numPag, tamMB) {
   const nombre = document.createElement("td");
-  nombre.textContent = nom;  
+  nombre.textContent = nom;
   nombre.style.width = "80%";
   nombre.style.textAlign = "left";
   nombre.style.cursor = "default";
@@ -151,13 +158,17 @@ function addFila(nom, link, numPag, tamMB) {
   fila.appendChild(nombre);
   fila.appendChild(descarga);
   fila.appendChild(mirar);
-  gsap.from(fila, {
-    duration: 0.3,
-    opacity: 0,
-    scaleX: 0,
-  }, "linear");
+  gsap.from(
+    fila,
+    {
+      duration: 0.3,
+      opacity: 0,
+      scaleX: 0,
+    },
+    "linear"
+  );
 
-  if (window.innerHeight <= document.querySelector("table").clientHeight){
+  if (window.innerHeight <= document.querySelector("table").clientHeight) {
     document.querySelector(".toTop").style.display = "block";
     document.querySelector(".mensajeSeleccione").style.display = "none";
   } else {
@@ -168,11 +179,13 @@ function addFila(nom, link, numPag, tamMB) {
   document.querySelector("table").appendChild(fila);
 }
 
-function generarListado(por) {
-  const tabla = document.querySelector("table");
-  const filas = tabla.querySelectorAll("tr");
-  for (const fila of filas) {
-    fila.remove();
+function generarListado(por, limpiar) {
+  if (limpiar) {
+    const tabla = document.querySelector("table");
+    const filas = tabla.querySelectorAll("tr");
+    for (const fila of filas) {
+      fila.remove();
+    }
   }
   const listado = dbMaterias(por);
   for (const i of listado) {

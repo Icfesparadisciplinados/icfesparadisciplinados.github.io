@@ -1,17 +1,30 @@
-const background = document.querySelector(".background")
+// Developed by Juan Manuel Díaz Gómez
 
-const backgroundTween = gsap.timeline()
+const masOpcBot = document.querySelector(".masOpcBot")
+const indicador = document.getElementById("indicador")
 
-backgroundTween.to(background, {
-  backgroundSize: "150px",
-  duration: 0.5,
-  ease: "power2.inOut",
+masOpcBot.addEventListener("click", (event) => {  
+  if (indicador.textContent == "open"){
+    indicador.textContent = "close"
+    gsap.to(masOpcBot, {
+      rotate: 0,
+      duration: 1,
+    })
+    gsap.to(".masOpc", {
+      x: 0,
+      duration: 1,
+    })
+    masOpcBot.src = "/img/plus.svg";
+  } else {
+    indicador.textContent = "open"
+    gsap.to(masOpcBot, {
+      rotate: 225,
+      duration: 1,
+    })
+    gsap.to(".masOpc", {
+      x: 195,
+      duration: 1,
+    })
+    masOpcBot.src = "/img/plusHV.svg";
+  }  
 })
-
-backgroundTween.to(background, {
-  backgroundSize: "200px",
-  duration: 0.5,
-  ease: "power2.outIn",
-})
-
-backgroundTween.repeat(-1)
