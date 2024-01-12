@@ -160,14 +160,10 @@ ajustarHoverReferencias("calenda");
 
 const descargarTodo = document.querySelector(".descargarTodo");
 
-descargarTodo.addEventListener("click", () => {  
-  // var url = `https://drive.google.com/uc?export=download&id=1H5sQLSV8fD8rl028AQ3zx7kNb7YCL0O5`;
-  window.location.href = `https://drive.google.com/uc?export=download&id=1H5sQLSV8fD8rl028AQ3zx7kNb7YCL0O5`
-  // for (let i of allEnlaces()) {
-  //   setTimeout(function () {
-  //     window.location.href = `https://drive.google.com/uc?export=download&id=${i}`
-      // window.open(`https://drive.google.com/uc?export=download&id=${i}`, "_blank");
-      // window.open(`https://drive.google.com/uc?export=download&id=${i}`, "_blank"); 
-  //   }, 2000);
-  // }
+descargarTodo.addEventListener("click", () => {      
+  for (let i of allEnlaces()) {
+    setTimeout(function () {
+      window.location.href = `https://drive.google.com/uc?export=download&id=${i}`
+    }, 2000);
+  }
 });
