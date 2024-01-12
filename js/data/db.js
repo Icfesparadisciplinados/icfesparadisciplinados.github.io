@@ -353,6 +353,24 @@ const enlaces = [
   ["TYT 2018 INGLES", "1bbZP0iZWIMnpsz5L-bcWHd2DLyVeiSoA", "12", "1"],
 ];
 
+const carpetas = [  
+["AM",	"1yeOtmIKBC-MoICnlEkqm-GCdJfAfQRo-",	"119",	"676"],
+["BGU",	"1Scu0KSyF61SWGlwY8bRkP7-evy2YNp0B",	"21",	"865"],
+["CALENDA",	"1JyIgcLBVj8pEWE8XWvsFxBrPbGcBmbXM",	"17",	"47"],
+["DEMRE",	"1exl3avI9A7mtkfZ-m7OTBecyB_lDgiJn",	"36",	"272"],
+["EPA",	"12Nj64dB12Z6pDnvBiI038rgHre_W0vO4",	"9",	"37"],
+["ES",	"1CFLmjf411sDV95knwLo2LXt9d9IMAuqf",	"4",	"15"],
+["FORMATE",	"1du-HVvwSuHD3U3WVbNpg3TxgSjsJ9Ao2",	"3",	"12"],
+["ICFES",	"1DXFu_p87cTuoysc77G2QLsdY4hhZYJxw",	"39",	"427"],
+["MO",	"1iafqtTO6YhzvXJ6VBKnST4MTvXB33C4p",	"9",	"16"],
+["OTROS",	"1acGQwrZW-rfuCXYaNUgUpCEaheXcVFKr",	"8",	"71"],
+["PRO",	"1oDNGpJFARVEIclih8YmdLdw85lwp7-6L",	"14",	"30"],
+["REPILOS",	"1eTyYDaI90mGsF-fvGX_Ava7TL5wJXnUy",	"17",	"16"],
+["SAI",	"1157jnB7G1o89sIGN0XdjhAQnIfpD3j5m",	"10",	"24"],
+["TYT",	"1Apph27qGtRXnRhqzEjdEnLSCiSiGqvYP",	"3",	"7 "],
+["SABER11",	"18DmrGRnsjgUavGZ-BXtvkY2NLl_gAvZB",	"25",	"555"],
+]  
+
 const contras = { 1004631085: "JJJJ", 27190593: "AAAA", 1004631394: "SSSS" };
 
 const palabras = {
@@ -428,6 +446,14 @@ function valuesPalabras() {
     valores.push([palabras[clave], clave]);
   }
   return valores;
+}
+
+function allEnlaces() {
+  const r = []
+  for (let i of enlaces) {
+    r.push(i[1])
+  }
+  return r
 }
 
 function arreglarListaMaterias(lista, conMaterias) {

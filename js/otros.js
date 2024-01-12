@@ -91,70 +91,83 @@ ajustarHover("pag", ".pag");
 ajustarHover("ref", ".ref");
 ajustarHover("des", ".des");
 
-makeContenido(".contPag");
+makeContenido(".contDes");
 
 function makeContenido(tipo) {
   for (let i of [".contCon", ".contPag", ".contRef", ".contDes"]) {
     const auxiliar = document.querySelector(i);
     auxiliar.style.display = "none";
   }
-  document.querySelector(".mensajeSeleccione").style.display = "none";  
+  document.querySelector(".mensajeSeleccione").style.display = "none";
   const contenedor = document.querySelector(tipo);
-  contenedor.style.display = "block"
-  // if (window.innerHeight <= contenedor.innerHeight) {
-  //   document.querySelector(".toTop").style.display = "block";    
-  // } else {
-  //   document.querySelector(".toTop").style.display = "none";
-  // }
+  contenedor.style.display = "block";
 }
 
 function ajustarTitulo(nombre) {
   const titulo = document.querySelector(`.${nombre}`);
-  const ctitulo = document.querySelector(`.c${nombre}`)  
-  ctitulo.style.display = "none"
+  const ctitulo = document.querySelector(`.c${nombre}`);
+  ctitulo.style.display = "none";
   titulo.addEventListener("click", () => {
     if (getComputedStyle(ctitulo).display == "none") {
-      ctitulo.style.display = "block"
+      ctitulo.style.display = "block";
     } else {
-      ctitulo.style.display = "none"
-    }       
-  })
+      ctitulo.style.display = "none";
+    }
+  });
 }
 
-ajustarTitulo("titulo1")
-ajustarTitulo("titulo2")
-ajustarTitulo("t1")
-ajustarTitulo("t2")
-ajustarTitulo("t3")
-ajustarTitulo("t4")
-ajustarTitulo("t5")
-ajustarTitulo("t6")
-ajustarTitulo("t7")
-ajustarTitulo("t8")
-ajustarTitulo("t9")
-ajustarTitulo("t10")
+ajustarTitulo("titulo1");
+ajustarTitulo("titulo2");
+ajustarTitulo("t1");
+ajustarTitulo("t2");
+ajustarTitulo("t3");
+ajustarTitulo("t4");
+ajustarTitulo("t5");
+ajustarTitulo("t6");
+ajustarTitulo("t7");
+ajustarTitulo("t8");
+ajustarTitulo("t9");
+ajustarTitulo("t10");
 
-var imgToTop = document.querySelector(".imgToTop");
-
-imgToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0 });
-  animation.play();
-});
-
-imgToTop.addEventListener("mouseleave", () => {
-  gsap.to(imgToTop, {
-    scale: 1,
-    y: 0,
-    duration: 1,
+function ajustarHoverReferencias(nombre) {
+  const con = document.querySelector(`.${nombre}`);
+  const img = document.querySelector(`.${nombre}Img`);
+  const tit = document.querySelector(`.${nombre}Tit`);
+  con.addEventListener("mouseover", () => {
+    img.src = `/img/${nombre}HV.svg`;
+    con.style.background = "#ffffff";
+    tit.style.color = "#004fa7";
+    gsap.to(con, {
+      scale: 1.1,
+      duration: 1,
+    });
   });
-  imgToTop.src = "/img/topArrow.svg";
-});
-
-imgToTop.addEventListener("mouseover", () => {
-  gsap.to(imgToTop, {
-    scale: 1.2,
-    y: -10,
-    duration: 1,
+  con.addEventListener("mouseout", () => {
+    img.src = `/img/${nombre}.svg`;
+    con.style.background = "#11111100";
+    tit.style.color = "#fff";
+    gsap.to(con, {
+      scale: 1,
+      duration: 1,
+    });
   });
-  imgToTop.src = "/img/topArrowHV.svg";
+}
+
+ajustarHoverReferencias("abel");
+ajustarHoverReferencias("formarte");
+ajustarHoverReferencias("milton");
+ajustarHoverReferencias("calenda");
+
+const descargarTodo = document.querySelector(".descargarTodo");
+
+descargarTodo.addEventListener("click", () => {  
+  // var url = `https://drive.google.com/uc?export=download&id=1H5sQLSV8fD8rl028AQ3zx7kNb7YCL0O5`;
+  window.location.href = `https://drive.google.com/uc?export=download&id=1H5sQLSV8fD8rl028AQ3zx7kNb7YCL0O5`
+  // for (let i of allEnlaces()) {
+  //   setTimeout(function () {
+  //     window.location.href = `https://drive.google.com/uc?export=download&id=${i}`
+      // window.open(`https://drive.google.com/uc?export=download&id=${i}`, "_blank");
+      // window.open(`https://drive.google.com/uc?export=download&id=${i}`, "_blank"); 
+  //   }, 2000);
+  // }
 });

@@ -47,7 +47,7 @@ body {
   background-repeat: repeat;
   background-color: #111;
   color: #fff;
-  min-width: 800px;
+  min-width: 1050px;
   height: 100vh;
 }
 
@@ -121,8 +121,18 @@ p {
 .ref {
   height: 35px;
 }
+
 .des {
   height: 26px;
+}
+
+.mensajeSeleccione {  
+  display: block;
+  margin-top: 150px;
+  margin-left: 40%;
+  font-size: 18px;
+  font-family: ps_bold;
+  cursor: default;    
 }
 
 .contenido {  
@@ -196,9 +206,13 @@ p {
   font-size: 24px;
 }
 
-.imgLink {
-  height: 20px;
+.imgLink {  
+  margin-bottom: -10px;  
+  margin-top: 10px;
+  height: 30px;
   width: 100px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .contRef {
@@ -206,26 +220,59 @@ p {
   display: none;
 }
 
+.contenidoContRef{  
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.refCuadro {  
+  cursor: pointer;
+  flex-direction: column-reverse;
+  height: 350px;
+  width: min-content;
+  border: 5px solid #ffffff;
+  border-radius: 20px;  
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.refCuadroImg {      
+  width: 250px;
+  height: 150px;
+  padding: 20px;
+}
+
+.refCuadroTexTit {      
+  cursor: pointer;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;    
+  margin-top: -2px; 
+  padding-top: 11px; 
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.refCuadroTex {    
+  cursor: pointer;
+  height: 180px;
+  position: absolute;
+  bottom: 0;  
+  font-size: 17px;
+  background-color: #fff;
+  color: #111;  
+  padding-bottom: 7px;    
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.refCuadroPar {
+  cursor: pointer;
+}
+
 .contDes {
   width: 100%;
   display: none;
-}
-
-.mensajeSeleccione {
-  display: block;
-  margin-top: 150px;
-  font-size: 18px;
-  text-align: center;
-  cursor: default;    
-}
-
-.toTop {
-  margin-left: 50%;      
-  padding-bottom: 25px;        
-  display: none;
-}
-
-.imgToTop {
-  cursor: pointer;
-  width: 30px;     
 }
