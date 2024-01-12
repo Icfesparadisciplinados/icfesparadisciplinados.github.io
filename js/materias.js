@@ -151,6 +151,9 @@ function addFila(nom, link, numPag, tamMB) {
     "href",
     `https://drive.google.com/file/d/${link}/edit`
   );
+  linkMirar.setAttribute(
+    "target","_blank"
+  );  
   const mirar = document.createElement("td");
   mirar.appendChild(linkMirar);
   mirar.setAttribute("width", "10%");

@@ -448,9 +448,9 @@ function valuesPalabras() {
   return valores;
 }
 
-function allEnlaces() {
+function allCarpetas() {
   const r = []
-  for (let i of enlaces) {
+  for (let i of carpetas) {
     r.push(i[1])
   }
   return r
