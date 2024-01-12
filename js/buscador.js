@@ -7,7 +7,7 @@ const indicador = document.getElementById("indicador")
 const imgToTop = document.querySelector(".imgToTop");
 const auxiliar = document.querySelector(".auxiliar");
 
-buscador.focus()
+// buscador.focus()
 
 function limpiarSugerencias() {
   for (const elemento of document.querySelectorAll(".sugerencia")) {
