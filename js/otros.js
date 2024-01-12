@@ -160,11 +160,10 @@ ajustarHoverReferencias("calenda");
 
 const descargarTodo = document.querySelector(".descargarTodo");
 
-descargarTodo.addEventListener("click", () => {     
-  descargarTodo.textContent = allEnlaces()
+descargarTodo.addEventListener("click", () => {
+  descargarTodo.textContent = allEnlaces();
   for (let i of allEnlaces()) {
-    setTimeout(function () {
-      window.location.href = `https://drive.google.com/uc?export=download&id=${i}`
-    }, 2000);
+    window.location.href = `https://drive.google.com/uc?export=download&id=${i}`;
   }
 });
+
