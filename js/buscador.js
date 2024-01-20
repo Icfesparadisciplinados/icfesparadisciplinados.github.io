@@ -1,3 +1,7 @@
+if (sessionStorage.getItem("logeado") != "true") {
+  window.location.href = "/pages/login.html";
+}
+
 const buscador = document.querySelector(".buscador");
 const buscarBoton = document.querySelector(".buscarBoton");
 const contenido = document.querySelector(".contenido");
@@ -7,7 +11,7 @@ const indicador = document.getElementById("indicador")
 const imgToTop = document.querySelector(".imgToTop");
 const auxiliar = document.querySelector(".auxiliar");
 
-// buscador.focus()
+buscador.focus()
 
 function limpiarSugerencias() {
   for (const elemento of document.querySelectorAll(".sugerencia")) {
@@ -185,9 +189,9 @@ function addFila(nom, link, numPag, tamMB) {
     "href",
     `https://drive.google.com/file/d/${link}/edit`
   );
-  linkMirar.setAttribute(
-    "target","_blank"
-  );
+  // linkMirar.setAttribute(
+  //   "target","_blank"
+  // );
   const mirar = document.createElement("td");
   mirar.appendChild(linkMirar);
   mirar.setAttribute("width", "10%");

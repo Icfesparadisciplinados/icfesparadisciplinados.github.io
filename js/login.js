@@ -1,41 +1,45 @@
-// Developed by Juan Manuel Díaz Gómez
+import { listadoDeDocumentosYContrasenas } from "./admin/db.js";
+
+sessionStorage.setItem("logeado", "false")
 
 const ced = document.querySelector(".ced");
 const ctr = document.querySelector(".ctr");
 const boton = document.querySelector(".boton");
 const verf = document.querySelector(".verf");
-
-document.querySelector(".ctr").addEventListener("keydown", function (e) {
-  const caracter = e.key;
-  if (!/[a-zA-Z]/.test(caracter)) {
-    e.preventDefault();
-  }
-});
-
+const docsYCont = await listadoDeDocumentosYContrasenas()
+const docus = docsYCont.map((lista) => lista[0]);
 function existe() {
-  if (Object.keys(contras).includes(ced.value)) {
+  if (docus.includes(ced.value)) {
     return true;
   } else {
     return false;
   }
 }
 
-function comprobar() {    
+function contraDeDoc(doc) {
+  for (let i of docsYCont) {
+    if (i[0] == doc) {
+      return i[1]
+    }
+  }
+}
+
+function comprobar() {
   var valorActual = "";
   if (ced.value.toString().length > 0) {
-    ced.style.borderBottomColor = "#004fa7"
+    ced.style.borderBottomColor = "#004fa7";
   } else {
-    ced.style.borderBottomColor = "#fff"
+    ced.style.borderBottomColor = "#fff";
   }
   if (ctr.value.toString().length > 0) {
-    ctr.style.borderBottomColor = "#004fa7"
+    ctr.style.borderBottomColor = "#004fa7";
   } else {
-    ctr.style.borderBottomColor = "#fff"
+    ctr.style.borderBottomColor = "#fff";
   }
-  if (ced.value.toString().length > 4) {       
+  if (ced.value.toString().length > 4) {
     if (existe()) {
       valorActual = "DOCUMENTO CORRECTO";
-      ced.style.borderBottomColor = "#0f0";      
+      ced.style.borderBottomColor = "#0f0";
     }
     if (ctr.value.toString().length == 4) {
       valorActual = "DOCUMENTO O CONTRASEÑA INCORRECTOS";
@@ -45,10 +49,12 @@ function comprobar() {
         valorActual = "DOCUMENTO CORRECTO, CONTRASEÑA INCORRECTA";
         ced.style.borderBottomColor = "#0f0";
         ctr.style.borderBottomColor = "#f00";
-        if (contras[ced.value].toUpperCase() == ctr.value.toUpperCase()) {
+        if (contraDeDoc(ced.value).toUpperCase() == ctr.value.toUpperCase()) {
           valorActual = "DOCUMENTO Y CONTRASEÑA CORRECTOS";
           ced.style.borderBottomColor = "#0f0";
           ctr.style.borderBottomColor = "#0f0";
+          sessionStorage.setItem("logeado", "true")
+          window.location.href = "/index.html";
         }
       }
     }
@@ -62,6 +68,13 @@ function limitar(casilla, longitud) {
   }
 }
 
+document.querySelector(".ctr").addEventListener("keydown", function (e) {
+  const caracter = e.key;
+  if (!/[a-zA-Z]/.test(caracter)) {
+    e.preventDefault();
+  }
+});
+
 document.querySelector(".ced").addEventListener("input", (event) => {
   limitar(document.querySelector(".ced"), 12);
   comprobar();
@@ -72,31 +85,33 @@ document.querySelector(".ctr").addEventListener("input", (event) => {
   comprobar();
 });
 
-const masOpcBot = document.querySelector(".masOpcBot")
-const indicador = document.getElementById("indicador")
+// Mas opciones
 
-masOpcBot.addEventListener("click", (event) => {  
-  if (indicador.textContent == "open"){
-    indicador.textContent = "close"
+const masOpcBot = document.querySelector(".masOpcBot");
+const indicador = document.getElementById("indicador");
+
+masOpcBot.addEventListener("click", (event) => {
+  if (indicador.textContent == "open") {
+    indicador.textContent = "close";
     gsap.to(masOpcBot, {
       rotate: 0,
       duration: 1,
-    })
+    });
     gsap.to(".masOpc", {
       x: 0,
       duration: 1,
-    })
+    });
     masOpcBot.src = "/img/plus.svg";
   } else {
-    indicador.textContent = "open"
+    indicador.textContent = "open";
     gsap.to(masOpcBot, {
       rotate: 225,
       duration: 1,
-    })
+    });
     gsap.to(".masOpc", {
       x: 195,
       duration: 1,
-    })
+    });
     masOpcBot.src = "/img/plusHV.svg";
-  }  
-})
+  }
+});

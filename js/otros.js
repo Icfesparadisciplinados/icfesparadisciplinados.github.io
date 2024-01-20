@@ -1,3 +1,7 @@
+if (sessionStorage.getItem("logeado") != "true") {
+  window.location.href = "/pages/login.html";
+}
+
 function cambiarImagen(elemento, imagen, src, color) {
   elemento.src = src;
   imagen.style.color = color;
@@ -165,37 +169,37 @@ descargarTodo.addEventListener("click", () => {
   downloadFolder("https://drive.google.com/drive/folders/1Scu0KSyF61SWGlwY8bRkP7-evy2YNp0B");
 });
 
-function downloadFolder(folderLink) {
-  var xhr = new XMLHttpRequest();  
-  xhr.open("GET", folderLink, true);  
-  xhr.onreadystatechange = function() {    
-    if (xhr.readyState === 4 && xhr.status === 200) {      
-      var response = xhr.responseText;      
-      var json = JSON.parse(response);      
-      for (var i = 0; i < json.files.length; i++) {        
-        var fileName = json.files[i].name;        
-        var fileLink = json.files[i].alternateLink;        
-        downloadFile(fileLink, fileName);
-      }
-    }
-  };
-  xhr.send();
-}
+// function downloadFolder(folderLink) {
+//   var xhr = new XMLHttpRequest();  
+//   xhr.open("GET", folderLink, true);  
+//   xhr.onreadystatechange = function() {    
+//     if (xhr.readyState === 4 && xhr.status === 200) {      
+//       var response = xhr.responseText;      
+//       var json = JSON.parse(response);      
+//       for (var i = 0; i < json.files.length; i++) {        
+//         var fileName = json.files[i].name;        
+//         var fileLink = json.files[i].alternateLink;        
+//         downloadFile(fileLink, fileName);
+//       }
+//     }
+//   };
+//   xhr.send();
+// }
 
-function downloadFile(fileLink, fileName) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", fileLink, true);
-  xhr.responseType = "arraybuffer";
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      var fileData = xhr.response;
-      var blob = new Blob([fileData], {type: fileLink.split("/").pop()});
-      var url = window.URL.createObjectURL(blob);
-      var a = document.createElement("a");
-      a.href = url;
-      a.download = fileName;
-      a.click();
-    }
-  };  
-  xhr.send();
-}
+// function downloadFile(fileLink, fileName) {
+//   var xhr = new XMLHttpRequest();
+//   xhr.open("GET", fileLink, true);
+//   xhr.responseType = "arraybuffer";
+//   xhr.onreadystatechange = function() {
+//     if (xhr.readyState === 4 && xhr.status === 200) {
+//       var fileData = xhr.response;
+//       var blob = new Blob([fileData], {type: fileLink.split("/").pop()});
+//       var url = window.URL.createObjectURL(blob);
+//       var a = document.createElement("a");
+//       a.href = url;
+//       a.download = fileName;
+//       a.click();
+//     }
+//   };  
+//   xhr.send();
+// }

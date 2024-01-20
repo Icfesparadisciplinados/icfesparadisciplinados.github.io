@@ -1,4 +1,6 @@
-// Developed by Juan Manuel Díaz Gómez
+if (sessionStorage.getItem("logeado") != "true") {
+  window.location.href = "/pages/login.html";
+}
 
 const masOpcBot = document.querySelector(".masOpcBot")
 const indicador = document.getElementById("indicador")

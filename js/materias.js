@@ -1,3 +1,7 @@
+if (sessionStorage.getItem("logeado") != "true") {
+  window.location.href = "/pages/login.html";
+}
+
 function cambiarImagen(elemento, imagen, src, color) {
   elemento.src = src;
   imagen.style.color = color;
