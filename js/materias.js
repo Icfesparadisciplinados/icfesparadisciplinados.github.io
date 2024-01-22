@@ -1,17 +1,70 @@
+import { dbMaterias } from "./admin/db.js"
+
 if (sessionStorage.getItem("logeado") != "true") {
   window.location.href = "/pages/login.html";
+}
+
+function restaurarImagen(nombre) {
+  const texto = document.querySelector(`.${nombre}Tex`);
+  const imagen = document.querySelector(`.${nombre}`);
+  imagen.src = `/img/${nombre}.svg`;
+  texto.style.color = "#fff";
+}
+
+function ajustarClick(materia, ref) {  
+  document.querySelector(ref).addEventListener("click", () => {        
+    supSupHover();        
+    for (let i of ["mat", "lec", "nat", "soc", "ing"]) {      
+      if (i != materia) {
+        restaurarImagen(i);
+      }
+    }    
+    switch (materia) {
+      case "mat":
+        generarListado("matem", true);
+        auxAjustarHover(materia, "#fcb05c");
+        break;
+      case "lec":
+        generarListado("lect", true);        
+        auxAjustarHover(materia, "#8c70ff");
+        break;
+      case "nat":        
+        generarListado("natu", true);
+        generarListado("fisi"), false;
+        generarListado("quim"), false;
+        generarListado("biol"), false;
+        auxAjustarHover(materia, "#14eb8c");
+        break;
+      case "soc":        
+        generarListado("soci", true);
+        auxAjustarHover(materia, "#ff91bd");
+        break;
+      case "ing":        
+        generarListado("ingl", true);
+        auxAjustarHover(materia, "#fced87");
+        break;
+      default:
+    }
+  });
+}
+
+function generarListado(por, limpiar) {
+  if (limpiar) {
+    const tabla = document.querySelector("table");
+    const filas = tabla.querySelectorAll("tr");
+    for (const fila of filas) {
+      fila.remove();
+    }
+  }
+  const listado = dbMaterias(por);
+  for (const i of listado) {
+    addFila(i[0], i[1], i[2], i[3]);
+  }
 }
 
 function cambiarImagen(elemento, imagen, src, color) {
   elemento.src = src;
   imagen.style.color = color;
-}
-
-function cambiarImagen2(nombre, color) {
-  texto = document.querySelector(`.${nombre}Tex`);
-  imagen = document.querySelector(`.${nombre}`);
-  imagen.src = `/img/${nombre}.svg`;
-  texto.style.color = color;
 }
 
 function hover(elemento, imagen, srcNor, srcHov, colorNor, colorHov) {
@@ -48,8 +101,6 @@ function supSupHover() {
   superHover("ing", "/img/ing.svg", "/img/ingHV.svg", "#fff", "#fced87");
 }
 
-supSupHover();
-
 function auxAjustarHover(materia, color) {
   for (const cell of document.querySelectorAll("td")) {
     cell.style.borderColor = color;
@@ -63,54 +114,6 @@ function auxAjustarHover(materia, color) {
     color
   );
 }
-
-function ajustarHover(materia, ref) {
-  document.querySelector(ref).addEventListener("click", function () {
-    supSupHover();    
-    for (const materias of ["mat", "lec", "nat", "soc", "ing"]) {
-      if (materias !== materia) {
-        cambiarImagen2(materias, "#fff");
-      }
-    }
-    switch (materia) {
-      case "mat":
-        generarListado("matem", true);
-        auxAjustarHover(materia, "#fcb05c");
-        break;
-      case "lec":
-        generarListado("lect", true);        
-        auxAjustarHover(materia, "#8c70ff");
-        break;
-      case "nat":        
-        generarListado("natu", true);
-        generarListado("fisi"), false;
-        generarListado("quim"), false;
-        generarListado("biol"), false;
-        auxAjustarHover(materia, "#14eb8c");
-        break;
-      case "soc":        
-        generarListado("soci", true);
-        auxAjustarHover(materia, "#ff91bd");
-        break;
-      case "ing":        
-        generarListado("ingl", true);
-        auxAjustarHover(materia, "#fced87");
-        break;
-      default:
-    }
-  });
-}
-
-ajustarHover("mat", ".matTex");
-ajustarHover("lec", ".lecTex");
-ajustarHover("nat", ".natTex");
-ajustarHover("soc", ".socTex");
-ajustarHover("ing", ".ingTex");
-ajustarHover("mat", ".mat");
-ajustarHover("lec", ".lec");
-ajustarHover("nat", ".nat");
-ajustarHover("soc", ".soc");
-ajustarHover("ing", ".ing");
 
 function addFila(nom, link, numPag, tamMB) {
   const nombre = document.createElement("td");
@@ -186,21 +189,18 @@ function addFila(nom, link, numPag, tamMB) {
   document.querySelector("table").appendChild(fila);
 }
 
-function generarListado(por, limpiar) {
-  if (limpiar) {
-    const tabla = document.querySelector("table");
-    const filas = tabla.querySelectorAll("tr");
-    for (const fila of filas) {
-      fila.remove();
-    }
-  }
-  const listado = dbMaterias(por);
-  for (const i of listado) {
-    addFila(i[0], i[1], i[2], i[3]);
-  }
-}
+supSupHover();
 
-// generarListado("mat");
+ajustarClick("mat", ".matTex");
+ajustarClick("lec", ".lecTex");
+ajustarClick("nat", ".natTex");
+ajustarClick("soc", ".socTex");
+ajustarClick("ing", ".ingTex");
+ajustarClick("mat", ".mat");
+ajustarClick("lec", ".lec");
+ajustarClick("nat", ".nat");
+ajustarClick("soc", ".soc");
+ajustarClick("ing", ".ing");
 
 var imgToTop = document.querySelector(".imgToTop");
 

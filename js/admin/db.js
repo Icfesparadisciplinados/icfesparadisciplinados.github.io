@@ -451,7 +451,7 @@ titulos = titulos.reduce((actual, elemento) => {
   return actual;
 }, []);
 
-function valuesPalabras() {
+export function valuesPalabras() {
   var valores = [];
   for (const clave of Object.keys(palabras)) {
     valores.push([palabras[clave], clave]);
@@ -459,7 +459,7 @@ function valuesPalabras() {
   return valores;
 }
 
-function allCarpetas() {
+export function allCarpetas() {
   const r = [];
   for (let i of carpetas) {
     r.push(i[1]);
@@ -504,7 +504,7 @@ function arreglarListaMaterias(lista, conMaterias) {
   return resultado;
 }
 
-function dbMaterias(variable) {
+export function dbMaterias(variable) {
   const claves = ["mat", "lec", "nat", "soc", "ing", "fis", "qui", "bio"];
   var result = [];
   for (const valor of claves) {
@@ -519,7 +519,7 @@ function dbMaterias(variable) {
   return result;
 }
 
-function dbBuscar(variable) {
+export function dbBuscar(variable) {
   var result = [];
   for (const enlace of enlaces) {
     if (enlace[0].toLowerCase().includes(variable)) {
@@ -529,7 +529,7 @@ function dbBuscar(variable) {
   return result;
 }
 
-function buscar(valor) {
+export function buscar(valor) {
   if (valor.length > 2) {
     const resultados = [];
     for (const string of titulos) {

@@ -1,3 +1,5 @@
+import { valuesPalabras, dbBuscar, buscar} from "./admin/db.js"
+
 if (sessionStorage.getItem("logeado") != "true") {
   window.location.href = "/pages/login.html";
 }
@@ -189,9 +191,6 @@ function addFila(nom, link, numPag, tamMB) {
     "href",
     `https://drive.google.com/file/d/${link}/edit`
   );
-  // linkMirar.setAttribute(
-  //   "target","_blank"
-  // );
   const mirar = document.createElement("td");
   mirar.appendChild(linkMirar);
   mirar.setAttribute("width", "10%");
@@ -208,7 +207,6 @@ function addFila(nom, link, numPag, tamMB) {
   if (window.innerHeight <= document.getElementById("mainTable").clientHeight){
     document.querySelector(".toTop").style.display = "block";
   }
-
   document.getElementById("mainTable").appendChild(fila);
 }
 
