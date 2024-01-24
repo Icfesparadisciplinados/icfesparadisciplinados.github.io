@@ -7,3 +7,20 @@ back.addEventListener("mouseenter", function() {
 back.addEventListener("mouseleave", function() {
   back.src = "/img/back.svg"
 });
+
+function ajustarDesplegables(numero){
+  const tit = document.querySelector(`.t${numero}`)
+  const con = document.querySelector(`.c${numero}`).style
+  con.display = "none"
+  tit.addEventListener("click", () => {
+    if (con.display == "none") {
+      con.display = "block"
+    } else {
+      con.display = "none"
+    }
+  })
+}
+
+for (let i = 1; i <= 2; i++) {
+  ajustarDesplegables(i)
+}

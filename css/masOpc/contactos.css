@@ -47,7 +47,7 @@ body {
   background-repeat: repeat;
   background-color: #111;
   color: #fff;
-  height: 100vh;
+  height: 100vh;  
 }
 
 a {
@@ -89,5 +89,32 @@ h2 {
 p {
   font-family: ps_normal;
   font-size: 18px;
-  cursor: default;
+  cursor: pointer;
+}
+
+.contContacto {
+  display: flex;
+  height: 130px;
+  cursor: pointer;
+}
+
+.imgContacto {
+  width: 130px;
+  float: left;
+  margin-right: 20px;
+  padding-right: 20px;
+  border-right: solid 4px #fff;
+  cursor: pointer;
+}
+
+.contTexto{
+  height: 100px;
+  justify-content: center;
+  cursor: pointer;
+  float: right;
+}
+
+.tituloContacto {
+  margin-top: 18px;
+  cursor: pointer;
 }

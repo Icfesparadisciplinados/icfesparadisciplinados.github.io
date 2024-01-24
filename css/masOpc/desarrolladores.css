@@ -41,7 +41,6 @@
   border: 3px solid #004fa7;  
 }
 
-
 body {
   background-image: url("/img/logoicfes.svg");
   background-size: 110px;
@@ -56,6 +55,18 @@ a {
   color: #fff;
   cursor: pointer;
 }
+
+h2 {
+  margin-bottom: 15px;
+  cursor: default;
+}
+
+p {
+  font-family: ps_normal;
+  font-size: 18px;
+  cursor: default;
+}
+
 
 .head {
   width: 100%;
@@ -82,38 +93,6 @@ a {
   width: 100%;
 }
 
-h2 {
-  margin-top: 25px;
-  margin-bottom: 5px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-p {
-  font-family: ps_normal;
-  font-size: 18px;
-  cursor: default;
-}
-
-.tituloGneral{  
-  margin-top: -30px;  
-  font-size: 22px;
-  text-align: center;
-  cursor: default;
-}
-
-.contenedorYoutube{
-  display: flex;
-  float:right;  
-  cursor: pointer;
-}
-
-.youtube {
-  width: 30px;  
-}
-
-.youtubeTex {
-  margin-top: 4px;
-  margin-left: 4px;
-  cursor: pointer;
+.agradecimiento {  
+  margin-bottom: 0px;
 }

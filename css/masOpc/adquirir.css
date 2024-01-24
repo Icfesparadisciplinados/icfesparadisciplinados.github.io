@@ -227,6 +227,11 @@ p {
   border-color: #004fa7;              
 }
 
+.payU {
+  height: 50px;
+  cursor: pointer;   
+}
+
 .contenidoPagos {
   display: none; /* ////////////////////////////////////////////////////////////////////////////// */
   padding: 20px;
@@ -259,4 +264,20 @@ p {
 
 .pago1:hover, .pago2:hover, .pago3:hover, .pago4:hover {
   background-color: #fff;
+}
+
+.pagosTextoElemento {   
+  font-family: ps_bold; 
+  font-size: 24px;  
+  cursor: default;
+}
+
+.pagosTextoElementoA {   
+  font-family: ps_bold; 
+  font-size: 24px;  
+  cursor: pointer;
+}
+
+.pagosTextoElementoA:hover{
+  font-size: 26px;
 }

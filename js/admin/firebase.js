@@ -69,3 +69,48 @@ export async function getUser(col, id) {
     });
   }
 }
+
+export async function addPago(col, campos) {
+  try {    
+    const docRef = await addDoc(collection(db, col), campos);
+    // return new Promise((resolve) => {
+    //   resolve(docRef.id);
+    // });
+    return docRef.id    
+  } catch (e) {
+    return new Promise(resolve => {
+      resolve(e);
+    });
+  }
+}
+
+export async function getPago(col, id) {  
+  try {
+    var r = []
+    const result = await getDoc(doc(collection(db, col), id));  
+    const dt = result.data()
+    r.push(dt.valor, dt.cantidad, dt.fecha)
+    return new Promise(resolve => {
+      resolve(r);
+    });
+  } catch (e) {
+    return new Promise(resolve => {
+      resolve(e);
+    });
+  }
+}
+
+
+// export async function getPago(col, id) {  
+//   try {
+//     var r = []
+//     const result = await getDoc(doc(collection(db, col), id));  
+//     const dt = result.data()
+//     r.push(dt.valor, dt.cantidad, dt.fecha)
+//     return r
+//   } catch (e) {
+//     return new Promise(resolve => {
+//       resolve(e);
+//     });
+//   }
+// }
