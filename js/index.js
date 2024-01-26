@@ -1,4 +1,4 @@
-// import {setLogueado} from "./admin/db.js";
+import {setLogueado} from "./admin/db.js";
 
 if (sessionStorage.getItem("logeado") != "true") {
   window.location.href = "/pages/login.html";
