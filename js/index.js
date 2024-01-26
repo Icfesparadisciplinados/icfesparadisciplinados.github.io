@@ -4,7 +4,8 @@ if (sessionStorage.getItem("logeado") != "true") {
   window.location.href = "/pages/login.html";
 }
 
-const dataAux = sessionStorage.getItem("data")
+// const dataAux = sessionStorage.getItem("data")
+const dataAux = ["1004631085", "JJJJ", "Juan Manuel Diaz Gomez", "654654", "4000"]
 
 await setLogueado({
     documento: dataAux[0],
