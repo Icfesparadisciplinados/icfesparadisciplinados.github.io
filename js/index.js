@@ -6,8 +6,7 @@ if (sessionStorage.getItem("logeado") != "true") {
 
 const dataAux = sessionStorage.getItem("data")
 
-async function saveState() {
-  await setLogueado({
+await setLogueado({
     documento: dataAux[0],
     contrasena: dataAux[1],
     nombre: dataAux[2],
@@ -16,11 +15,13 @@ async function saveState() {
     precio: dataAux[5],                       
     logueado: false,                      
   }, dataAux[0])
-}
 
-window.addEventListener('beforeunload', function() {
-  saveState()
-});
+// async function saveState() {
+// }
+
+// window.addEventListener('beforeunload', function() {
+//   saveState()
+// });
 
 const masOpcBot = document.querySelector(".masOpcBot")
 const indicador = document.getElementById("indicador")
