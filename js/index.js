@@ -5,7 +5,7 @@ if (sessionStorage.getItem("logeado") != "true") {
 }
 
 // const dataAux = sessionStorage.getItem("data")
-const dataAux = ["1004631085", "JJJJ", "Juan Manuel Diaz Gomez", "654654", "4000"]
+const dataAux = ["1004631085", "JJJJ", "Juan Manuel Diaz Gomez", "27/04/2020", "Juanma", "4000"]
 
 await setLogueado({
     documento: dataAux[0],
