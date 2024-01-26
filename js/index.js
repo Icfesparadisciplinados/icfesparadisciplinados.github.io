@@ -1,6 +1,26 @@
+// import {setLogueado} from "./admin/db.js";
+
 if (sessionStorage.getItem("logeado") != "true") {
   window.location.href = "/pages/login.html";
 }
+
+const dataAux = sessionStorage.getItem("data")
+
+async function saveState() {
+  await setLogueado({
+    documento: dataAux[0],
+    contrasena: dataAux[1],
+    nombre: dataAux[2],
+    fecha: dataAux[3], 
+    creador: dataAux[4],
+    precio: dataAux[5],                       
+    logueado: false,                      
+  }, dataAux[0])
+}
+
+window.addEventListener('beforeunload', function() {
+  saveState()
+});
 
 const masOpcBot = document.querySelector(".masOpcBot")
 const indicador = document.getElementById("indicador")

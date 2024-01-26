@@ -1,4 +1,4 @@
-import { listadoDeDocumentosYContrasenas } from "./admin/db.js";
+import { listadoDeDocumentosYDatos, setLogueado} from "./admin/db.js";
 
 sessionStorage.setItem("logeado", "false")
 
@@ -6,8 +6,17 @@ const ced = document.querySelector(".ced");
 const ctr = document.querySelector(".ctr");
 const boton = document.querySelector(".boton");
 const verf = document.querySelector(".verf");
-const docsYCont = await listadoDeDocumentosYContrasenas()
+const docsYCont = await listadoDeDocumentosYDatos()
 const docus = docsYCont.map((lista) => lista[0]);
+
+function docADatos(numero){
+  for (let i of docsYCont) {
+    if (i[0] == numero) {
+      return i
+    }
+  }
+}
+
 function existe() {
   if (docus.includes(ced.value)) {
     return true;
@@ -24,7 +33,7 @@ function contraDeDoc(doc) {
   }
 }
 
-function comprobar() {
+async function comprobar() {
   var valorActual = "";
   if (ced.value.toString().length > 0) {
     ced.style.borderBottomColor = "#004fa7";
@@ -53,7 +62,25 @@ function comprobar() {
           valorActual = "DOCUMENTO Y CONTRASEÑA CORRECTOS";
           ced.style.borderBottomColor = "#0f0";
           ctr.style.borderBottomColor = "#0f0";
-          sessionStorage.setItem("logeado", "true")
+          const data = docADatos(ced.value)
+          valorActual = await setLogueado({
+            documento: data[0],
+            contrasena: data[1],
+            nombre: data[2],
+            fecha: data[3], 
+            creador: data[4],
+            precio: data[5],                       
+            logueado: true,                      
+          }, data[7])
+          sessionStorage.setItem("logeado", "true")  
+          sessionStorage.setItem("data", [
+            data[0],
+            data[1],
+            data[2],
+            data[3],
+            data[4],
+            data[5],
+          ])    
           window.location.href = "/index.html";
         }
       }
@@ -84,8 +111,6 @@ document.querySelector(".ctr").addEventListener("input", (event) => {
   limitar(document.querySelector(".ctr"), 4);
   comprobar();
 });
-
-// Mas opciones
 
 const masOpcBot = document.querySelector(".masOpcBot");
 const indicador = document.getElementById("indicador");

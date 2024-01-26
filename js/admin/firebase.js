@@ -5,7 +5,8 @@ import {
   addDoc,
   getDocs,
   getDoc,
-  doc,    
+  setDoc,
+  doc,   
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const app = initializeApp({
@@ -25,13 +26,14 @@ export async function getUsuarios() {
     const r = [];
     const querySnapshot = await getDocs(collection(db, "usuarios"));
     querySnapshot.forEach((doc) => {
-      r.push([
-        doc.data().nombre,
+      r.push([        
         doc.data().documento,
         doc.data().contrasena,
-        doc.data().precio,
+        doc.data().nombre,
+        doc.data().fecha, 
         doc.data().creador,
-        doc.data().fecha,
+        doc.data().precio,                       
+        doc.data().logueado,
         doc.id,
       ]);
     });
@@ -41,9 +43,9 @@ export async function getUsuarios() {
   }
 }
 
-export async function addUser(col, campos) {
-  try {    
-    const docRef = await addDoc(collection(db, col), campos);
+export async function addUser(campos, id) {  
+  try {        
+    await setDoc(doc(collection(db, `usuarios`), id), campos);  
     return new Promise((resolve) => {
       resolve(true);
     });
@@ -73,9 +75,6 @@ export async function getUser(col, id) {
 export async function addPago(col, campos) {
   try {    
     const docRef = await addDoc(collection(db, col), campos);
-    // return new Promise((resolve) => {
-    //   resolve(docRef.id);
-    // });
     return docRef.id    
   } catch (e) {
     return new Promise(resolve => {
@@ -100,6 +99,16 @@ export async function getPago(col, id) {
   }
 }
 
+export async function setLogueadoFirebase(data, id) {    
+  try {
+    await setDoc(doc(collection(db, `usuarios`), id), data);  
+    return "Cambio exitoso"
+  } catch (e) {
+    return new Promise(resolve => {
+      resolve(e);
+    });
+  }
+}
 
 // export async function getPago(col, id) {  
 //   try {

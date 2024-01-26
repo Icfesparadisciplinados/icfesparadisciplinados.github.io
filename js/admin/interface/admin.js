@@ -96,20 +96,21 @@ function generarStringAleatorio() {
 addUserContrasena.value = generarStringAleatorio();
 addUserPrecio.value = "4000";
 
-addUserButton.addEventListener("click", () => {
+addUserButton.addEventListener("click", async () => {
   if (addUserAuxEstado.textContent == "add") {
     addUserAuxEstado.textContent = "none";
     location.reload();        
   } else {
     if (
-      addUser("usuarios", {
+      await addUser({
         documento: addUserDocumento.value,
         contrasena: addUserContrasena.value,
         nombre: addUserNombre.value,
         fecha: addUserFecha.value,
         creador: addUserCreador.value,
         precio: addUserPrecio.value,
-      })
+        logueado: false,
+      }, addUserDocumento.value)
     ) {
       addUserButton.textContent = "Reiniciar";
       addUserConfirmacion.textContent = `Se a registrado correctamente a ${addUserNombre.value}, por favor enviele el comprovante con su usuario y contraseña`;

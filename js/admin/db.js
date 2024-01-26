@@ -1,15 +1,21 @@
-import { getUsuarios } from "./firebase.js";
+import { getUsuarios, setLogueadoFirebase } from "./firebase.js";
 
 const usuarios = await getUsuarios()
-export async function listadoDeDocumentosYContrasenas() {
+
+export async function listadoDeDocumentosYDatos() {
   const r = [];  
   for (let i of usuarios) {
-    r.push([i[1], i[2]]);
+    r.push(i);
   }
   return new Promise(function (resolve, reject) {
     resolve(r);
   });
 }
+
+export async function setLogueado(data, id) {
+  return await setLogueadoFirebase(data, id)
+}
+
 
 const enlaces = [
   ["BGU FISICA1", "1bUKPfBPvjsdCgcC32ZXCiAS84n00sp-L", "226", "37"],
