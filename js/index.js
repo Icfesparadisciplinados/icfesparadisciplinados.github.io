@@ -11,7 +11,7 @@ const fechaData = sessionStorage.getItem("fecha")
 const creadorData = sessionStorage.getItem("creador")
 const precioData = sessionStorage.getItem("precio")     
 
-async function onBeforeUnload() {
+window.addEventListener('beforeunload', async (event) => {
   await setLogueado({
     documento: documentoData,
     contrasena: contrasenaData,
@@ -20,10 +20,12 @@ async function onBeforeUnload() {
     creador: creadorData,
     precio: precioData,                       
     logueado: false,                  
-  }, "1004631085")     
-}
+  }, "1004631085") 
+});
 
-window.addEventListener("beforeunload", onBeforeUnload());
+// window.addEventListener("unload", async () => {
+   
+// });
 
 const masOpcBot = document.querySelector(".masOpcBot")
 const indicador = document.getElementById("indicador")
