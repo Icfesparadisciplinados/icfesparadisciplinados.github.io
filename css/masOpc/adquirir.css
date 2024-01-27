@@ -273,6 +273,7 @@ p {
 }
 
 .pagosTextoElementoA {   
+  margin-top: 5px;
   font-family: ps_bold; 
   font-size: 24px;  
   cursor: pointer;

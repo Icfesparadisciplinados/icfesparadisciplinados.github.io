@@ -1,27 +1,25 @@
-import {setLogueado} from "./admin/db.js";
+import { setLogueado } from "./admin/db.js";
 
-if (sessionStorage.getItem("logeado") != "true") {
-  window.location.href = "/pages/login.html";
-}
-
-// const dataAux = sessionStorage.getItem("data")
-const dataAux = ["1004631085", "JJJJ", "Juan Manuel Diaz Gomez", "27/04/2020", "Juanma", "4000"]
-
-await setLogueado({
-    documento: dataAux[0],
-    contrasena: dataAux[1],
-    nombre: dataAux[2],
-    fecha: dataAux[3], 
-    creador: dataAux[4],
-    precio: dataAux[5],                       
-    logueado: false,                      
-  }, dataAux[0])
-
-// async function saveState() {
+// if (sessionStorage.getItem("logeado") != "true") {
+//   window.location.href = "/pages/login.html";
 // }
 
-// window.addEventListener('beforeunload', function() {
-//   saveState()
+// const dataAux = sessionStorage.getItem("data")
+
+// document.querySelector(".aux15").textContent = "adssadasd"
+
+document.querySelector(".aux15").textContent = await setLogueado({
+  documento: "dataAux[0]",
+  contrasena: "dataAux[1]",
+  nombre: "dataAux[2]",
+  fecha: "dataAux[3]", 
+  creador: "dataAux[4]",
+  precio: "dataAux[5]",                       
+  logueado: true,                  
+}, "1004631085")
+
+// window.addEventListener('beforeunload', async function() {
+  
 // });
 
 const masOpcBot = document.querySelector(".masOpcBot")

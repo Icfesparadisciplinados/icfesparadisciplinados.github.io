@@ -1,8 +1,8 @@
 import { dbMaterias } from "./admin/db.js"
 
-if (sessionStorage.getItem("logeado") != "true") {
-  window.location.href = "/pages/login.html";
-}
+// if (sessionStorage.getItem("logeado") != "true") {
+//   window.location.href = "/pages/login.html";
+// }
 
 function restaurarImagen(nombre) {
   const texto = document.querySelector(`.${nombre}Tex`);
