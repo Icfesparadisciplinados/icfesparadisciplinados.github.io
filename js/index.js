@@ -9,17 +9,7 @@ const contrasenaData = sessionStorage.getItem("contrasena")
 const nombreData = sessionStorage.getItem("nombre")
 const fechaData = sessionStorage.getItem("fecha") 
 const creadorData = sessionStorage.getItem("creador")
-const precioData = sessionStorage.getItem("precio")    
-
-// document.querySelector(".aux15").textContent = await setLogueado({
-//     documento: documentoData,
-//     contrasena: contrasenaData,
-//     nombre: nombreData,
-//     fecha: fechaData, 
-//     creador: creadorData,
-//     precio: precioData,                       
-//     logueado: true,                  
-//   }, "1004631085")  
+const precioData = sessionStorage.getItem("precio")     
 
 window.addEventListener("beforeunload", onBeforeUnload);
 
@@ -33,6 +23,7 @@ async function onBeforeUnload() {
     precio: precioData,                       
     logueado: false,                  
   }, "1004631085")  
+  return "¿Está seguro de que desea salir?";
 }
 
 const masOpcBot = document.querySelector(".masOpcBot")
