@@ -73,14 +73,12 @@ async function comprobar() {
             logueado: true,                      
           }, data[7])
           sessionStorage.setItem("logeado", "true")  
-          sessionStorage.setItem("data", [
-            data[0],
-            data[1],
-            data[2],
-            data[3],
-            data[4],
-            data[5],
-          ])    
+          sessionStorage.setItem("documento",  data[0])
+          sessionStorage.setItem("contrasena",  data[1])
+          sessionStorage.setItem("nombre",  data[2])
+          sessionStorage.setItem("fecha",  data[3]) 
+          sessionStorage.setItem("creador",  data[4])
+          sessionStorage.setItem("precio",  data[5])       
           window.location.href = "/index.html";
         }
       }

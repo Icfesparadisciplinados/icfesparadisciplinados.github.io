@@ -102,11 +102,11 @@ export async function getPago(col, id) {
 export async function setLogueadoFirebase(data, id) {    
   try {
     await setDoc(doc(collection(db, `usuarios`), id), data);  
-    return "Cambio exitoso"
+    // return "Cambio exitoso"
   } catch (e) {
-    return new Promise(resolve => {
-      resolve(e);
-    });
+    // return new Promise(resolve => {
+    //   resolve(e);
+    // });
   }
 }
 

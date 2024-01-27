@@ -1,26 +1,39 @@
 import { setLogueado } from "./admin/db.js";
 
-// if (sessionStorage.getItem("logeado") != "true") {
-//   window.location.href = "/pages/login.html";
-// }
+if (sessionStorage.getItem("logeado") != "true") {
+  window.location.href = "/pages/login.html";
+}
 
-// const dataAux = sessionStorage.getItem("data")
+const documentoData = sessionStorage.getItem("documento")
+const contrasenaData = sessionStorage.getItem("contrasena")
+const nombreData = sessionStorage.getItem("nombre")
+const fechaData = sessionStorage.getItem("fecha") 
+const creadorData = sessionStorage.getItem("creador")
+const precioData = sessionStorage.getItem("precio")    
 
-// document.querySelector(".aux15").textContent = "adssadasd"
+// document.querySelector(".aux15").textContent = await setLogueado({
+//     documento: documentoData,
+//     contrasena: contrasenaData,
+//     nombre: nombreData,
+//     fecha: fechaData, 
+//     creador: creadorData,
+//     precio: precioData,                       
+//     logueado: true,                  
+//   }, "1004631085")  
 
-document.querySelector(".aux15").textContent = await setLogueado({
-  documento: "dataAux[0]",
-  contrasena: "dataAux[1]",
-  nombre: "dataAux[2]",
-  fecha: "dataAux[3]", 
-  creador: "dataAux[4]",
-  precio: "dataAux[5]",                       
-  logueado: true,                  
-}, "1004631085")
+window.addEventListener("beforeunload", onBeforeUnload);
 
-// window.addEventListener('beforeunload', async function() {
-  
-// });
+async function onBeforeUnload() {
+  await setLogueado({
+    documento: documentoData,
+    contrasena: contrasenaData,
+    nombre: nombreData,
+    fecha: fechaData, 
+    creador: creadorData,
+    precio: precioData,                       
+    logueado: false,                  
+  }, "1004631085")  
+}
 
 const masOpcBot = document.querySelector(".masOpcBot")
 const indicador = document.getElementById("indicador")

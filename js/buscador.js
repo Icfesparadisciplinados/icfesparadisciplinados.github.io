@@ -1,8 +1,8 @@
 import { valuesPalabras, dbBuscar, buscar} from "./admin/db.js"
 
-// if (sessionStorage.getItem("logeado") != "true") {
-//   window.location.href = "/pages/login.html";
-// }
+if (sessionStorage.getItem("logeado") != "true") {
+  window.location.href = "/pages/login.html";
+}
 
 const buscador = document.querySelector(".buscador");
 const buscarBoton = document.querySelector(".buscarBoton");
