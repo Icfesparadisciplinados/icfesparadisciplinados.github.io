@@ -11,7 +11,7 @@ const fechaData = sessionStorage.getItem("fecha")
 const creadorData = sessionStorage.getItem("creador")
 const precioData = sessionStorage.getItem("precio")     
 
-window.addEventListener("beforeunload", async () => {
+window.addEventListener("unload", async () => {
   await setLogueado({
     documento: documentoData,
     contrasena: contrasenaData,
