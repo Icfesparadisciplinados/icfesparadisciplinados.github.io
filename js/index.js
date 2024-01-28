@@ -11,25 +11,20 @@ const fechaData = sessionStorage.getItem("fecha")
 const creadorData = sessionStorage.getItem("creador")
 const precioData = sessionStorage.getItem("precio")     
 
-window.addEventListener('beforeunload', async function(event) {
-  event.preventDefault();
-  try {
-    await setLogueado({
-      documento: documentoData,
-      contrasena: contrasenaData,
-      nombre: nombreData,
-      fecha: fechaData,
-      creador: creadorData,
-      precio: precioData,
-      logueado: false,
-    }, "1004631085");
-    console.log('Operación asincrónica completada antes de cerrar la página.');
-  } catch (error) {
-    console.error('Error al realizar la operación asincrónica:', error);
-  }
-  var mensaje = '¿Seguro que quieres salir de la página?';
-  event.returnValue = mensaje;
-  return mensaje;
+window.addEventListener('beforeunload', async (event) => {
+  // La función `setLogueado()` se ejecutará de forma asíncrona
+  await setLogueado({
+    documento: documentoData,
+    contrasena: contrasenaData,
+    nombre: nombreData,
+    fecha: fechaData,
+    creador: creadorData,
+    precio: precioData,
+    logueado: false,
+  }, "1004631085");
+
+  // Personalizar o suprimir el mensaje de confirmación
+  event.returnValue = '';
 });
 
 const masOpcBot = document.querySelector(".masOpcBot")
