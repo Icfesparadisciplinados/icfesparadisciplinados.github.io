@@ -8,6 +8,13 @@ const boton = document.querySelector(".boton");
 const verf = document.querySelector(".verf");
 const docsYCont = await listadoDeDocumentosYDatos()
 const docus = docsYCont.map((lista) => lista[0]);
+const nombreTex = document.getElementById("nombre")
+const fechaTex = document.getElementById("fecha")
+const horaTex = document.getElementById("hora")
+const userdataTex = document.getElementById("userData")
+const loginCont = document.querySelector(".loginCont")
+const altCont = document.querySelector(".altCont")
+const button2 = document.querySelector(".button2")
 
 function docADatos(numero){
   for (let i of docsYCont) {
@@ -63,23 +70,32 @@ async function comprobar() {
           ced.style.borderBottomColor = "#0f0";
           ctr.style.borderBottomColor = "#0f0";
           const data = docADatos(ced.value)
-          valorActual = await setLogueado({
-            documento: data[0],
-            contrasena: data[1],
-            nombre: data[2],
-            fecha: data[3], 
-            creador: data[4],
-            precio: data[5],                       
-            logueado: true,                      
-          }, data[7])
-          sessionStorage.setItem("logeado", "true")  
-          sessionStorage.setItem("documento",  data[0])
-          sessionStorage.setItem("contrasena",  data[1])
-          sessionStorage.setItem("nombre",  data[2])
-          sessionStorage.setItem("fecha",  data[3]) 
-          sessionStorage.setItem("creador",  data[4])
-          sessionStorage.setItem("precio",  data[5])       
-          window.location.href = "/index.html";
+          if (data[6]) {        
+            altCont.style.display = "block"    
+            loginCont.style.display = "none"
+            nombreTex.textContent = data[2].split(" ")[0]
+            fechaTex.textContent = data[3]
+            horaTex.textContent = data[3]
+            userdataTex.textContent = navigator.userAgent
+          } else {
+            valorActual = await setLogueado({
+              documento: data[0],
+              contrasena: data[1],
+              nombre: data[2],
+              fecha: data[3], 
+              creador: data[4],
+              precio: data[5],                       
+              logueado: true,                      
+            }, data[7])
+            sessionStorage.setItem("logeado", "true")  
+            sessionStorage.setItem("documento",  data[0])
+            sessionStorage.setItem("contrasena",  data[1])
+            sessionStorage.setItem("nombre",  data[2])
+            sessionStorage.setItem("fecha",  data[3]) 
+            sessionStorage.setItem("creador",  data[4])
+            sessionStorage.setItem("precio",  data[5])       
+            window.location.href = "/index.html";
+          }                              
         }
       }
     }
@@ -138,3 +154,7 @@ masOpcBot.addEventListener("click", (event) => {
     masOpcBot.src = "/img/plusHV.svg";
   }
 });
+
+button2.addEventListener("click", () => {
+  location.reload()
+})

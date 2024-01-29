@@ -127,3 +127,44 @@ input:focus {
 #indicador {
   color: #00000000;
 }
+
+.altCont{
+  display: none;
+  padding: 30px;
+}
+
+.loginCont {
+  height: 100%;
+}
+
+.altContP{
+  font-size: 18px;
+}
+
+.button2 {
+  cursor: pointer;        
+  background-color: #00000000;
+  color: #fff;  
+  font-size: 18px;
+  border-radius: 20px;
+  border-color: #fff;    
+  border-width: 3px;
+  margin-top: 20px;  
+  margin-left: 10px;
+  height: 30px;
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
+.button2:hover {    
+  color: #004fa7;  
+  font-size: 18px;
+  border-radius: 20px;
+  border-color: #004fa7;    
+  border-width: 3px;
+  margin-top: 20px;  
+  margin-left: 10px;
+  height: 30px;
+  padding: 10px;
+  padding-bottom: 30px;
+}

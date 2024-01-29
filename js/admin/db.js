@@ -13,7 +13,7 @@ export async function listadoDeDocumentosYDatos() {
 }
 
 export async function setLogueado(data, id) {
-  return await setLogueadoFirebase(data, id)
+  await setLogueadoFirebase(data, id)
 }
 
 
