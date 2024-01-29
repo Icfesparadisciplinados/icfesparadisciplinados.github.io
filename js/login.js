@@ -74,8 +74,8 @@ async function comprobar() {
             altCont.style.display = "block"    
             loginCont.style.display = "none"
             nombreTex.textContent = data[2].split(" ")[0]
-            fechaTex.textContent = data[3]
-            horaTex.textContent = data[3]
+            fechaTex.textContent = data[7].split(" ")[0]
+            horaTex.textContent = data[7].split(" ")[1]
             userdataTex.textContent = navigator.userAgent
           } else {
             valorActual = await setLogueado({
@@ -86,14 +86,15 @@ async function comprobar() {
               creador: data[4],
               precio: data[5],                       
               logueado: true,                      
-            }, data[7])
+            }, data[8])
             sessionStorage.setItem("logeado", "true")  
             sessionStorage.setItem("documento",  data[0])
             sessionStorage.setItem("contrasena",  data[1])
             sessionStorage.setItem("nombre",  data[2])
             sessionStorage.setItem("fecha",  data[3]) 
             sessionStorage.setItem("creador",  data[4])
-            sessionStorage.setItem("precio",  data[5])       
+            sessionStorage.setItem("precio",  data[5])  
+            sessionStorage.setItem("fechaLogueado",  data[7])              
             window.location.href = "/index.html";
           }                              
         }

@@ -1,19 +1,9 @@
 import { getUsuarios, addUser } from "../firebase.js";
 import { crearRecibo } from "./recibo.js";
 
-// 
-// 
-// 
-// 
-// U
-// S
-// E
-// R
-// S
-// 
-// 
-// 
-// 
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// U S E R S ////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 
 function makeContenido(tipo) {
   for (let i of [".opc1Cont", ".opc2Cont"]) {
@@ -110,6 +100,7 @@ addUserButton.addEventListener("click", async () => {
         creador: addUserCreador.value,
         precio: addUserPrecio.value,
         logueado: false,
+        fechaLogueado: addUserFecha.value,
       }, addUserDocumento.value)
     ) {
       addUserButton.textContent = "Reiniciar";
@@ -182,20 +173,9 @@ crearListadoDeUsuarios.addEventListener("click", async () => {
   }  
 })
 
-// 
-// 
-// 
-// 
-// 
-// D
-// O
-// C
-// S
-// 
-// 
-// 
-// 
-// 
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// D O C S //////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 
 const inputManagerDocs = document.querySelector(".inputManagerDocs");
 const tableManagerDocs = document.querySelector(".tablaDeResultadosManagerDocs");

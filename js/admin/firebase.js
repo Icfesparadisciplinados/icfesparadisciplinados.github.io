@@ -33,7 +33,8 @@ export async function getUsuarios() {
         doc.data().fecha, 
         doc.data().creador,
         doc.data().precio,                       
-        doc.data().logueado,
+        doc.data().logueado,       
+        doc.data().fechaLogueado,        
         doc.id,
       ]);
     });
