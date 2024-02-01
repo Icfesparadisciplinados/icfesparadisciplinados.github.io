@@ -1,5 +1,27 @@
 import { addPago } from "../admin/firebase.js"
 
+try {  
+  const usrlParams = new URLSearchParams(window.location.search)
+  const valor = usrlParams.get("valor")
+  const cantidad = usrlParams.get("cantidad")  
+  if (valor == "16000" || valor == "40000" ){
+    const date = new Date()
+    const fechaActual = date.getDate() +
+    "/" +
+    (date.getMonth() + 1) +
+    "/" +
+    date.getFullYear() +
+    "\t" +
+    date.getHours() +
+    ":" +
+    date.getMinutes() +
+    ":" +
+    date.getSeconds(); 
+    const id = await addPago({valor: valor, cantidad: cantidad, fecha: fechaActual})
+    window.location.href = `/pages/masOpc/crearCuentas.html?id=${id}`
+  }
+} catch (error){}
+
 const back = document.querySelector(".back");
 const tituloOferta = document.querySelectorAll(".tituloOferta");
 const oferta1 = document.querySelector(".oferta1")
@@ -12,33 +34,26 @@ const contenidoOfertas = document.querySelector(".contenido")
 const contenidoPagos = document.querySelector(".contenidoPagos")
 const buttonBack = document.querySelector(".buttonBack")
 
+function ajustarPaginaBack() {
+  contenidoOfertas.style.display = "none"
+  contenidoPagos.style.display = "block"
+  buttonBack.addEventListener("click", () => {
+    buttonBack.href = "/pages/masOpc/adquirir.html"
+    location.reload();
+  })
+}
+
 oferta1Button.addEventListener("click", () => {
-  contenidoOfertas.style.display = "none"
-  contenidoPagos.style.display = "block"
-  buttonBack.addEventListener("click", () => {
-    location.reload();
-  })
+  ajustarPaginaBack()
 })
 
-oferta2Button.addEventListener("click", () => {
-  // window.location.href = `/pages/masOpc/crearCuentas.html?id=${id}`
-  contenidoOfertas.style.display = "none"
-  contenidoPagos.style.display = "block"
-  buttonBack.addEventListener("click", () => {
-    location.reload();
-  })
+oferta2Button.addEventListener("click", () => {  
+  ajustarPaginaBack()
 })
-
 
 oferta3Button.addEventListener("click", () => {
-  contenidoOfertas.style.display = "none"
-  contenidoPagos.style.display = "block"
-  buttonBack.addEventListener("click", () => {
-    location.reload();
-  })
+  ajustarPaginaBack()
 })
-
-
 
 back.addEventListener("mouseenter", function() {
   back.src = "/img/backHV.svg"
@@ -157,33 +172,6 @@ function ajustarPagos(nombre){
 ajustarPagos(".pago1")
 ajustarPagos(".pago2")
 ajustarPagos(".pago3")
-// ajustarPagos(".pago4")
-
-const textoContenidoPagos = document.querySelector(".pagoExitosoNombre")
-
-try {  
-  const usrlParams = new URLSearchParams(window.location.search)
-  const valor = usrlParams.get("valor")
-  const cantidad = usrlParams.get("cantidad")  
-  if (valor == "16000" || valor == "40000" ){
-    const date = new Date()
-    const fechaActual = date.getDate() +
-    "/" +
-    (date.getMonth() + 1) +
-    "/" +
-    date.getFullYear() +
-    "\t" +
-    date.getHours() +
-    ":" +
-    date.getMinutes() +
-    ":" +
-    date.getSeconds(); 
-    const id = await addPago("pagos", {valor: valor, cantidad: cantidad, fecha: fechaActual})
-    window.location.href = `/pages/masOpc/crearCuentas.html?id=${id}`
-  }
-} catch (error){
-  
-}
 
 function ajustarHoverPayU(nombre) {
   const ofertaPayU = document.querySelector(nombre)

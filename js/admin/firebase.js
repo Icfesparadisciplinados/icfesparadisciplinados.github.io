@@ -73,9 +73,9 @@ export async function getUser(col, id) {
   }
 }
 
-export async function addPago(col, campos) {
+export async function addPago(campos) {
   try {    
-    const docRef = await addDoc(collection(db, col), campos);
+    const docRef = await addDoc(collection(db, "pagos"), campos);
     return docRef.id    
   } catch (e) {
     return new Promise(resolve => {
@@ -84,10 +84,10 @@ export async function addPago(col, campos) {
   }
 }
 
-export async function getPago(col, id) {  
+export async function getPago(id) {  
   try {
     var r = []
-    const result = await getDoc(doc(collection(db, col), id));  
+    const result = await getDoc(doc(collection(db, "pagos"), id));  
     const dt = result.data()
     r.push(dt.valor, dt.cantidad, dt.fecha)
     return new Promise(resolve => {

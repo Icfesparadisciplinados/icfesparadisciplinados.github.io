@@ -89,7 +89,7 @@ export function crearRecibo(documento, contraseña, nombre, valor) {
   doc.text(
     16,
     282,
-    +date.getDate() + " / " + (date.getMonth() + 1) + " / " + date.getFullYear()
+    + date.getDate() + " / " + (date.getMonth() + 1) + " / " + date.getFullYear()
   );  
   doc.textWithLink("juanmanueldiazgomez247@gmail.com", 58, 282, {
     url: "mailto:juanmanueldiazgomez247@gmail.com",

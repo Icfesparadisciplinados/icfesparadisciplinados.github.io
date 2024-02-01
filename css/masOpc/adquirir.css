@@ -203,12 +203,15 @@ p {
 }
 
 .contenedorButton2{
-  width: 100%; 
-  text-align: center;   
-  margin-bottom: 10px;
+  width: 100%;        
+  margin-bottom: 20px;
+  margin-top: 20px;  
+  height: 50px;
+  display: flex;    
+  justify-content: center;
 }
 
-.button2 {
+.button2 {  
   cursor: pointer;        
   background-color: #00000000;
   color: #fff;  
@@ -216,10 +219,9 @@ p {
   border-radius: 20px;
   border-color: #fff;    
   border-width: 3px;  
-  margin-left: 10px;
+  margin-left: 10px;  
   height: 50px;
-  padding: 10px;
-  padding-bottom: 30px;
+  padding: 10px;    
 }
 
 .button2:hover {    
@@ -227,9 +229,13 @@ p {
   border-color: #004fa7;              
 }
 
-.payU {
+.contPayU {
+  vertical-align:top;
+}
+
+.payU {  
   height: 50px;
-  cursor: pointer;   
+  cursor: pointer;     
 }
 
 .contenidoPagos {

@@ -68,14 +68,13 @@ addUserFecha.value =
   ":" +
   date.getSeconds();
 
-const caracteres = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function generarStringAleatorio() {
   const numerosAleatorios = [];
   for (let i = 0; i < 4; i++) {
     numerosAleatorios.push(Math.floor(Math.random() * caracteres.length));
   }
-
   return (
     caracteres.substr(numerosAleatorios[0], 1) +
     caracteres.substr(numerosAleatorios[1], 1) +
@@ -83,6 +82,7 @@ function generarStringAleatorio() {
     caracteres.substr(numerosAleatorios[3], 1)
   );
 }
+
 addUserContrasena.value = generarStringAleatorio();
 addUserPrecio.value = "4000";
 
