@@ -131,10 +131,8 @@ button2.addEventListener("click", () => {
   location.reload()
 })
 
-
 const masOpcBot = document.querySelector(".masOpcBot");
 const indicador = document.getElementById("indicador");
-
 masOpcBot.addEventListener("click", (event) => {
   if (indicador.textContent == "open") {
     indicador.textContent = "close";
