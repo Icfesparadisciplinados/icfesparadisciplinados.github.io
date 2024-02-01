@@ -78,15 +78,15 @@ async function comprobar() {
             horaTex.textContent = data[7].split(" ")[1]
             userdataTex.textContent = navigator.userAgent
           } else {
-            valorActual = await setLogueado({
-              documento: data[0],
-              contrasena: data[1],
-              nombre: data[2],
-              fecha: data[3], 
-              creador: data[4],
-              precio: data[5],                       
-              logueado: true,                      
-            }, data[8])
+            // valorActual = await setLogueado({
+            //   documento: data[0],
+            //   contrasena: data[1],
+            //   nombre: data[2],
+            //   fecha: data[3], 
+            //   creador: data[4],
+            //   precio: data[5],                       
+            //   logueado: true,                      
+            // }, data[8])
             sessionStorage.setItem("logeado", "true")  
             sessionStorage.setItem("documento",  data[0])
             sessionStorage.setItem("contrasena",  data[1])
@@ -101,7 +101,8 @@ async function comprobar() {
       }
     }
   }
-  verf.textContent = valorActual;
+  // verf.textContent = valorActual;
+  verf.textContent = "Iniciando sección";
 }
 
 function limitar(casilla, longitud) {
