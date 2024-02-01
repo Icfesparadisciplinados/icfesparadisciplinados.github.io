@@ -1,4 +1,4 @@
-import { setLogueado } from "./admin/db.js";
+// import { setLogueado } from "./admin/db.js";
 
 if (sessionStorage.getItem("logeado") != "true") {
   window.location.href = "/pages/login.html";
@@ -8,34 +8,33 @@ if (sessionStorage.getItem("logeado") != "true") {
 /////////////////////////////////////////////  Error en beforeunload  ///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const date = new Date();
-const fechaYHora =
-  date.getDate() +
-  "/" +
-  (date.getMonth() + 1) +
-  "/" +
-  date.getFullYear() +
-  "\t" +
-  date.getHours() +
-  ":" +
-  date.getMinutes() +
-  ":" +
-  date.getSeconds();
+// const date = new Date();
+// const fechaYHora =
+//   date.getDate() +
+//   "/" +
+//   (date.getMonth() + 1) +
+//   "/" +
+//   date.getFullYear() +
+//   "\t" +
+//   date.getHours() +
+//   ":" +
+//   date.getMinutes() +
+//   ":" +
+//   date.getSeconds();
 
-await setLogueado({
-  documento: sessionStorage.getItem("documento"),
-  contrasena: sessionStorage.getItem("contrasena"),
-  nombre: sessionStorage.getItem("nombre"),
-  fecha: sessionStorage.getItem("fecha") ,
-  creador: sessionStorage.getItem("creador"),
-  precio: sessionStorage.getItem("precio"),    
-  logueado: false,
-  fechaLogueado: fechaYHora,
-}, sessionStorage.getItem("documento"));
+// await setLogueado({
+//   documento: sessionStorage.getItem("documento"),
+//   contrasena: sessionStorage.getItem("contrasena"),
+//   nombre: sessionStorage.getItem("nombre"),
+//   fecha: sessionStorage.getItem("fecha") ,
+//   creador: sessionStorage.getItem("creador"),
+//   precio: sessionStorage.getItem("precio"),    
+//   logueado: false,
+//   fechaLogueado: fechaYHora,
+// }, sessionStorage.getItem("documento"));
 
 // window.addEventListener('beforeunload', async function(event) {
-//   event.preventDefault();
-  
+//   event.preventDefault();  
 // });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
