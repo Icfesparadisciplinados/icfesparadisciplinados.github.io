@@ -1,9 +1,5 @@
 import { listadoDeDocumentosYDatos, setLogueado} from "./admin/db.js";
 
-button2.addEventListener("click", () => {
-  location.reload()
-})
-
 sessionStorage.setItem("logeado", "false")
 
 const ced = document.querySelector(".ced");
@@ -131,8 +127,14 @@ document.querySelector(".ctr").addEventListener("input", (event) => {
   comprobar();
 });
 
+button2.addEventListener("click", () => {
+  location.reload()
+})
+
+
 const masOpcBot = document.querySelector(".masOpcBot");
 const indicador = document.getElementById("indicador");
+
 masOpcBot.addEventListener("click", (event) => {
   if (indicador.textContent == "open") {
     indicador.textContent = "close";
