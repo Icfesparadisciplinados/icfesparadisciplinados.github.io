@@ -162,3 +162,17 @@ p {
   color: #ff6464;
   display: none;
 }
+
+.contenedorBoton {  
+  width: 100% - 300px;        
+  margin-bottom: 20px;
+  margin-top: 20px;  
+  margin-left: 300px;
+  display: flex;    
+  justify-content: center;
+}
+
+.buttonTerminar {
+  margin-left: 300px;
+  width: 300px;
+}
