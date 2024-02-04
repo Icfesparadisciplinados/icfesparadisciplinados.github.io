@@ -2,7 +2,7 @@ Licencia de uso para material icfesparadisciplinados.github.io
 
 Este acuerdo de licencia, establece los términos y condiciones bajo los cuales se otorga el derecho de utilizar el código fuente proporcionado en icfesparadisciplinados.github.io.
 
-1. Concesión de licencia:
+**1. Concesión de licencia:**
 
 1.1. Se otorga una licencia no exclusiva, intransferible y revocable para utilizar el Código únicamente con el propósito de acceder y utilizar este sito web.
 
