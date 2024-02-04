@@ -288,3 +288,7 @@ p {
 .pagosTextoElementoA:hover{
   font-size: 26px;
 }
+
+.mensajeImportanteCuentas {
+  color: #f55;
+}
