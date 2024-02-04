@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Login</title>
+    <link rel="icon" href="/img/favicon.svg" />
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body>
+    <div class="loginCont">
+      <p class="verf"></p>
+      <div class="cont">   
+        <div class="elem"><input class="ced input" placeholder="Número de documento" /></div>  
+        <div class="elem"><input class="ctr input" placeholder="Contraseña" /></div>     
+        <!-- <div class="elem"><button id="buttonBorrador">Ejecutar</button></div>    -->
+      </div>
+      <div class="masOpc">
+        <h3 id="indicador"></h3>
+        <h2 style="margin-top: 4px;"><a href="/pages/masOpc/adquirir.html" class="masOpcOpc">Adquirir cuenta</a></h2>
+        <h3 style="margin-top: 4px;"><a href="/pages/masOpc/desarrolladores.html" class="masOpcOpc">Desarrolladores</a></h3>
+        <h3 style="margin-top: 4px;"><a href="/pages/masOpc/contactos.html" class="masOpcOpc">Contactos</a></h3>
+        <h3 style="margin-top: 4px;"><a href="/pages/masOpc/legalidad.html" class="masOpcOpc">Legalidad</a></h3>      
+        <h3 style="margin-top: 4px;"><a href="/pages/masOpc/ayuda.html"  class="masOpcOpc">Ayuda</a></h3>                  
+      </div>
+      <img src="/img/plus.svg" class="masOpcBot"></img>
+    </div>
+    <div class="altCont">
+      <div style="text-align: center;">
+        <h2>Hola <span id="nombre"></span></h2>        
+      </div><br>
+      <p class="altContP">Lamentablemente solo puedes tener una sección iniciada por cuenta, por favor cierra tu sesión abierta y vuelve a intentarlo.</p><br>
+      <p class="altContP">Datos del último inicio de sección:</p>      
+      <p class="altContP">Fecha: <span id="fecha"></span></p>
+      <p class="altContP">Hora: <span id="hora"></span></p>
+      <p class="altContP">User Agent: <span id="userData"></span></p><br>
+      <p class="altContP">Si no reconoces este inicio de sección, por favor, háznoslo saber a través de nuestros <a href="/pages/masOpc/contactos.html">medios de comunicación</a>.</p>
+      <div style="text-align: center;">
+        <button class="button2">Da clic aquí para intentarlo nuevamente.</button>
+      </div>      
+    </div>        
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script type="module" src="/js/admin/firebase.js"></script>
+  <script type="module" src="/js/admin/db.js"></script>
+  <script type="module" src="/js/login.js"></script>
+</html>

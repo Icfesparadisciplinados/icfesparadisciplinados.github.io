@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Buscardor</title>
+    <link rel="icon" href="/img/favicon.svg" />
+    <link rel="stylesheet" href="/css/buscador.css" />
+  </head>
+  <body>
+    <a title="Inicio" href="/index.html"><img class="home"></a>
+    <div class="contBuscador">
+      <imput><img class="buscarBoton" src="/img/buscar.svg">
+      </imput><input class="buscador" placeholder="Palabra clave" />                       
+    </div>    
+    <div class="masOpc">
+      <h3 id="indicador"></h3>
+      <table id="opciones"></table>           
+    </div>      
+    <img src="/img/plus.svg" class="masOpcBot"></img>    
+    <p class="auxiliar">sad</p>
+    <table id="mainTable"></table>
+    <div class="toTop">
+      <img class="imgToTop" src="/img/topArrow.svg" title="Ir al principio">
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script type="module" src="/js/admin/db.js"></script>
+  <script type="module" src="/js/buscador.js"></script>
+</html>

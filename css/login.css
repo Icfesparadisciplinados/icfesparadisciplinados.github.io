@@ -1,0 +1,170 @@
+@font-face {
+  font-family: ps_bold;
+  src: url(/font/ps_b.ttf);
+  font-style: bold;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: ps_normal;
+  src: url(/font/ps_n.ttf);
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  font-family: ps_bold;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width:  14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;        
+}
+
+::-webkit-scrollbar-thumb {  
+  background-color: #111;  
+  border-radius: 7px;      
+  border: 2px solid #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {  
+  background-color: #111;  
+  border-radius: 7px;      
+  border: 3px solid #004fa7;  
+}
+
+body {
+  background-image: url("/img/logoicfes.svg");
+  background-size: 110px;
+  background-repeat: repeat;
+  background-color: #111;
+  color: #fff;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.cont {    
+  padding-top: 39vh;
+  height: 100%;    
+}
+
+.elem {    
+  display: grid;
+  justify-content: center;    
+  height: 50px;
+}
+
+.input {
+  text-transform: uppercase;
+  background-color: #00000000;
+  color: #fff;  
+  font-size: 18px;
+  border-radius: 20%;
+  border-color: #00000000;
+  border-bottom-color: #fff;
+  border-bottom-width: 3px;  
+  margin-top: 10px;  
+  width: 260px;
+  height: 30px;
+  text-align: center;
+}
+
+input:focus {
+  border-radius: 10px;
+  outline-color: #004fa7;
+  border-color: #004fa7;
+}
+
+.ctr {
+  width: 160px;
+}
+
+.verf {  
+  font-family: ps_normal;
+  font-size: 14px;
+  right: 3px;
+  top: 3px;
+  position: absolute;    
+}
+
+.masOpcBot {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: 30px;
+  height: 30px;  
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.masOpc{
+  position: absolute;
+  bottom: 55px;
+  left: -180px;  
+}
+.masOpcOpc {
+  cursor: pointer;
+}
+
+.masOpcOpc:hover {  
+  color: #004fa7;
+  font-size: 30px;
+}
+
+#indicador {
+  color: #00000000;
+}
+
+.altCont{
+  display: none;
+  padding: 30px;
+}
+
+.loginCont {
+  height: 100%;
+}
+
+.altContP{
+  font-size: 18px;
+}
+
+.button2 {
+  cursor: pointer;        
+  background-color: #00000000;
+  color: #fff;  
+  font-size: 18px;
+  border-radius: 20px;
+  border-color: #fff;    
+  border-width: 3px;
+  margin-top: 20px;  
+  margin-left: 10px;
+  height: 30px;
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
+.button2:hover {    
+  color: #004fa7;  
+  font-size: 18px;
+  border-radius: 20px;
+  border-color: #004fa7;    
+  border-width: 3px;
+  margin-top: 20px;  
+  margin-left: 10px;
+  height: 30px;
+  padding: 10px;
+  padding-bottom: 30px;
+}

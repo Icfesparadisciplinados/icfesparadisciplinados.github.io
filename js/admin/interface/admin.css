@@ -1,0 +1,229 @@
+@font-face {
+    font-family: ps_bold;
+    src: url(/font/ps_b.ttf);
+    font-style: bold;
+    font-weight: bold;
+  }
+  
+  * {
+    font-family: ps_bold;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  ::-webkit-scrollbar {
+    width:  14px;
+    height: 14px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #111;        
+  }
+  
+  ::-webkit-scrollbar-thumb {  
+    background-color: #111;  
+    border-radius: 7px;      
+    border: 2px solid #fff;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {  
+    background-color: #111;  
+    border-radius: 7px;      
+    border: 3px solid #004fa7;  
+  }
+  
+  body {
+    min-width: 413px;
+    color: #fff;
+    height: 100vh;
+    width: 100%;
+    background-image: url("/img/logoicfes.svg");
+    background-size: 110px;
+    background-repeat: repeat;
+    background-color: #111;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  /* .background {
+    position: absolute;
+    background-image: url("/img/logoicfes.svg");
+    background-size: 110px;
+    background-repeat: repeat;
+    background-color: #111;  
+    width: 100%;
+    height: 100%;
+  } */
+
+  .seleccion {    
+    z-index: 500;
+    display: flex ;    
+    width: 100%;        
+    justify-content: center;
+  }  
+
+  .opcion {    
+    width: 160px;
+    cursor: pointer;    
+    /* background-image: linear-gradient(to right, #0f0, #aaa); */
+  }
+
+  .imgOpcion {
+    float: left;
+    margin-top: 10px;
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .texOpcion {
+    padding-top: 19px;        
+    height: 35px;
+  }
+
+  .contenido {    
+    width: 100%;
+    margin-top: -60px;
+    padding: 10px;
+    padding-top: 80px;    
+    height: 90%;
+  }
+
+  .contenidoOpcionesTitulo {  
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: right;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .contenido2 {
+    margin-bottom: 10px;
+  }
+
+  .contenidoOpcionesTexto {
+    width: 100%;
+    text-align: justify;    
+    font-size: 17px;
+    cursor: default;
+    margin-top: 20px;  
+    margin-left: 10px;
+  }
+
+  .input2 {
+    background-color: #00000000;
+    color: #fff;  
+    font-size: 18px;
+    border-radius: 20%;
+    border-color: #00000000;
+    border-bottom-color: #fff;
+    border-bottom-width: 3px;  
+    margin-top: 20px;  
+    margin-left: 10px;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+  }
+  
+  .input2:focus {
+    border-radius: 10px;
+    outline-color: #004fa7;
+    border-color: #004fa7;
+  }
+
+  .button2 {
+    cursor: pointer;        
+    background-color: #00000000;
+    color: #fff;  
+    font-size: 18px;
+    border-radius: 20px;
+    border-color: #fff;    
+    border-width: 3px;
+    margin-top: 20px;  
+    margin-left: 10px;
+    height: 30px;
+    padding: 10px;
+    padding-bottom: 30px;
+  }
+
+  .button2:hover {    
+    color: #004fa7;  
+    font-size: 18px;
+    border-radius: 20px;
+    border-color: #004fa7;    
+    border-width: 3px;
+    margin-top: 20px;  
+    margin-left: 10px;
+    height: 30px;
+    padding: 10px;
+    padding-bottom: 30px;
+  }
+
+  .addUserButtonConfirm {
+    display: none;
+  }
+
+  .addUserconfirmacion {
+    text-align: center;
+    color: #f00;  
+  }
+
+  .confirmacionUsuarioCreado{
+    width: 100%;
+    text-align: center;
+  }
+
+  #listadoDeUsuariosTable {            
+    min-width: 1180px;
+    margin-top: 15px;       
+    padding-bottom: 15px;       
+
+  }  
+  
+  td {
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;   
+    padding-top: 2px;   
+    padding-bottom: 2px;   
+    text-align: center;     
+    border: solid 1px;    
+    border-color: #fff;
+    color: #fff;
+    border-radius: 50px;   
+  }
+
+  .inputManagerDocs {        
+    background-color: #00000000;
+    color: #fff;  
+    font-size: 14px;
+    border-radius: 5px;
+    border-color: #fff;    
+    border-bottom-width: 3px;        
+    width: 96%;    
+    height: 200px;
+    margin-top: 2vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    padding: 5px;
+  }
+  
+  .inputManagerDocs:focus {
+    border-radius: 5px;
+    outline-color: #004fa7;
+    border-color: #004fa7;
+  }  
+
+  .res {
+    width: 100%;
+    margin-top: 450px;
+    margin-left: 20px;    
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+  }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>- - ADMIN - -</title>
+    <link rel="icon" href="/img/favicon.svg" />
+    <link rel="stylesheet" href="/js/admin/interface/admin.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="seleccion">
+      <div class="opcion opc1">
+        <img class="imgOpcion" src="/img/home.svg" />
+        <p class="texOpcion">Usuarios</p>
+      </div>
+      <div class="opcion opc2">
+        <img class="imgOpcion" src="/img/home.svg" />
+        <p class="texOpcion">Documentos</p>
+      </div>
+    </div>
+    <div class="contenido">
+      <div class="opc1Cont">
+        <h1 class="opc11 contenidoOpcionesTitulo">Agregar Usuario</h1>
+        <div class="opc11Cont contenido2">
+          <p class="contenidoOpcionesTexto">Formulario para agregar un usuario, esperar la notificacion de exito, cuidado con agregar 2 veces al mismo usuario.</p>      
+          <input class="input2 addUserDocumento" placeholder="Numero de documento" />
+          <input class="input2 addUserContrasena" placeholder="Contraseña (Auto)" />
+          <input class="input2 addUserNombre" placeholder="Nombre del usuario" />
+          <input class="input2 addUserFecha" placeholder="Fecha" />
+          <input class="input2 addUserCreador" placeholder="Creador (Ejemplo: Juan Diaz)" />
+          <input class="input2 addUserPrecio" placeholder="Valor pagado por la cuenta" />          
+          <div style="width: 100%; text-align: center">
+            <button class="button2 addUserButton">Añadir y esperar confirmacion</button>
+            <p class="addUserButtonConfirm">none</p>
+          </div>                    
+          <p class="contenidoOpcionesTexto addUserconfirmacion">No se a añadido al usuario aun.</p>
+          <div class="confirmacionUsuarioCreado">     
+            <button class="button2 addUserDescargarReciboButton">Descargar recibo</button>
+          </div>
+        </div>
+        <h1 class="opc12 contenidoOpcionesTitulo">Listado de Usuarios</h1>
+        <div class="opc12Cont">
+          <div style="width: 100%; text-align: center">            
+            <button class="button2 crearListadoDeUsuarios">Crear listado de usuarios</button>
+          </div>           
+          <table id="listadoDeUsuariosTable"></table>
+        </div>
+      </div>
+      <div class="opc2Cont">         
+        <textarea class="inputManagerDocs" placeholder="Ingrese datos"></textarea>
+        <div style="width: 100%; text-align: center">            
+          <button class="button2 res1ManagerDocs">Resultado 1</button>
+          <button class="button2 res2ManagerDocs">Resultado 2</button>
+        </div>  
+        <br>
+        <table class="tablaDeResultadosManagerDocs"></table>        
+        <h1 class="opc21 contenidoOpcionesTitulo">Informacion</h1>              
+        <div class="opc21Cont">
+          <h1>Con resultado 1</h1>
+          <h3>Pasas de</h3>
+          <p>"AM","Mi unidad > AM","K6 RESPUESTAS.pdf","https://drive.google.com/uc?id=1C28xXfMPu1GCkBN9Tjb5rmar4jM4LHKu&export=download","2.16 MB","December 28, 2023 at 10:43:05 AM"</p>    
+          <h3>A</h3>
+          <p>K6 RESPUESTAS	1C28xXfMPu1GCkBN9Tjb5rmar4jM4LHKu		2</p><br>    
+          <p>Te convierte lo que puedes sacar de</p>
+          <p>DRIVE CARPETA | ABRIR CON Drive Explorer | FETCH FILES | LOGIN | EXPORT CSV</p>
+          <p>El numero de paginas de cada PDF lo puedes sacar con "DEVELOPMENT/Numero de paginas.xlms"</p><br>
+          <h1>Con resultado 2</h1>
+          <h3>Pasas de</h3>
+          <p>BGU FISICA1	https://drive.google.com/drive/folders/1Scu0KSyF61SWGlwY8bRkP7-evy2YNp0B?usp=drive_link	226	37</p><br>
+          <p>Es simplemente para acortar los enlaces de las carpetas para el archivo "DEVELOPMENT/Enlaces/TOTAL"</p>             
+          <h3>A</h3>
+          <p>BGU FISICA1	1bUKPfBPvjsdCgcC32ZXCiAS84n00sp-L	226	37</p>
+        </div>   
+        <br>   
+      </div>      
+    </div>
+  </body>
+  <script type="module" src="/js/admin/interface/recibo.js"></script>
+  <script type="module" src="/js/admin/firebase.js"></script>
+  <script type="module" src="/js/admin/db.js"></script>  
+  <script type="module" src="/js/admin/interface/admin.js"></script>
+</html>
