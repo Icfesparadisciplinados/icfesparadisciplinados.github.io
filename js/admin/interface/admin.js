@@ -37,7 +37,7 @@ ajustarOpciones2(".opc11")
 ajustarOpciones2(".opc12");
 ajustarOpciones(".opc2");
 ajustarOpciones2(".opc21")
-makeContenido(".opc2Cont");
+makeContenido(".opc1Cont");
 
 const addUserDocumento = document.querySelector(".addUserDocumento");
 const addUserContrasena = document.querySelector(".addUserContrasena");
@@ -85,6 +85,10 @@ function generarStringAleatorio() {
 
 addUserContrasena.value = generarStringAleatorio();
 addUserPrecio.value = "4000";
+
+addUserContrasena.addEventListener("input", () => {
+  addUserContrasena.value = addUserContrasena.value.toUpperCase()
+})
 
 addUserButton.addEventListener("click", async () => {
   if (addUserAuxEstado.textContent == "add") {

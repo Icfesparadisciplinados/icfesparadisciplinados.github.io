@@ -37,13 +37,15 @@ export function crearRecibo(documento, contraseña, nombre, valor) {
   doc.text(16, 42, "Agradecemos sinceramente tu apoyo, y estaremos atentos a cualquier\ninquietud que tengas, estudia con disciplina, el puntaje no depende de lo\nque hagan los demás por ti sino de ti mismo.")
   doc.text(16, 65, "En este documento podrás encontrar la contraseña que fue asignada a \ntu número de documento, que también actúa como tu usuario de ingreso.")
   doc.text(16, 83, "Puedes ingresar a la plataforma dando clic             o entrando a la página\nicfesparadisciplinados.github.io.")
+  doc.text(16, 99, "En el sitio web, en la                                  , podrás encontrar descripciones\nmás detalladas que podrán resolverán todas tus dudas.")
+  doc.text(16, 116, "Si no puedes abrir los enlaces marcados en azul, te recomendamos\nir a Play Store o App Store, y descargar un visualizador de PDFs muy\ncompleto llamado XODO docs.")
+  doc.setTextColor("#00f");
   doc.textWithLink("AQUI", 121, 83, {
     url: "https://icfesparadisciplinados.github.io.",
   });  
-  doc.textWithLink("En el sitio web, en la página de ayuda, podrás encontrar descripciones\nmás detalladas que podrán resolverán todas tus dudas.", 16, 99, {
+  doc.textWithLink("página de ayuda", 66, 99, {
     url: "https://icfesparadisciplinados.github.io./pages/masOpc/ayuda.html",
-  });
-  doc.text(16, 116, "Allí te estarán esperando 520 documentos y aumentando, todos\nrelacionados con el icfes o catalogados como material de estudio, estos \nestán organizados para dar un mayor dinamismo.")
+  });  
   doc.setFontSize(20);  
   doc.setFont("ps_b", "bolt");
   doc.setTextColor("#004fa7");
@@ -82,7 +84,7 @@ export function crearRecibo(documento, contraseña, nombre, valor) {
       " ]"
   );
   doc.setFontSize(16);      
-  doc.text(16, 236, "Este documento se genera solo una vez, recomendamos guardar o\n memorizar su contraseña y luego eliminar el mismo, si no lo ve necesario\n por favor no lo imprima, para más información visita\n icfesparadisciplinados.github.io y ve al apartado + y luego a Legalidad.")
+  doc.text(16, 236, "Este documento se genera solo una vez, recomendamos guardar o\nmemorizar su contraseña y luego eliminar el mismo, si no lo ve necesario\npor favor no lo imprima, para más información visita nuestra")
   doc.text(62, 265, "QUE TENGAS UN EXCELENTE DÍA")
   doc.setFontSize(16);
   doc.setFont("ps_n", "normal");
@@ -91,6 +93,13 @@ export function crearRecibo(documento, contraseña, nombre, valor) {
     282,
     + date.getDate() + " / " + (date.getMonth() + 1) + " / " + date.getFullYear()
   );  
+  doc.setTextColor("#00f");
+  doc.textWithLink("pagina de", 164, 249, {
+    url: "https://icfesparadisciplinados.github.io./pages/masOpc/legalidad.html",
+  }); 
+  doc.textWithLink("legalidad.", 16, 255.5, {
+    url: "https://icfesparadisciplinados.github.io./pages/masOpc/legalidad.html",
+  }); 
   doc.textWithLink("juanmanueldiazgomez247@gmail.com", 58, 282, {
     url: "mailto:juanmanueldiazgomez247@gmail.com",
   });  
