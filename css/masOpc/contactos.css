@@ -76,7 +76,7 @@ a {
   cursor: default;
 }
 
-.body {
+.ajusteElemento {
   padding: 20px;
   width: 100%;
 }
@@ -109,9 +109,9 @@ p {
 
 .contTexto{
   height: 100px;
-  justify-content: center;
-  cursor: pointer;
-  float: right;
+  /* justify-content: center; */
+  /* cursor: pointer; */
+  /* float: right; */
 }
 
 .tituloContacto {

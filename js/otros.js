@@ -95,8 +95,6 @@ ajustarHover("pag", ".pag");
 ajustarHover("ref", ".ref");
 ajustarHover("des", ".des");
 
-makeContenido(".contDes");
-
 function makeContenido(tipo) {
   for (let i of [".contCon", ".contPag", ".contRef", ".contDes"]) {
     const auxiliar = document.querySelector(i);

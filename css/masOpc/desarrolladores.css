@@ -57,11 +57,12 @@ a {
 }
 
 h2 {
-  margin-bottom: 15px;
   cursor: default;
+  margin-top: 2px;
 }
 
 p {
+  margin-top: 15px;
   font-family: ps_normal;
   font-size: 18px;
   cursor: default;
