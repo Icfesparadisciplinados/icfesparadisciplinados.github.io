@@ -1,3 +1,9 @@
+@media (orientation: landscape) {
+  body {
+    transform: rotate(-90deg);
+  }
+}
+
 @font-face {
   font-family: ps_bold;
   src: url(/font/ps_b.ttf);
