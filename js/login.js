@@ -2,6 +2,12 @@ import { listadoDeDocumentosYDatos, setLogueado} from "./admin/db.js";
 
 sessionStorage.setItem("logeado", "false")
 
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+if (isMobile) {
+  document.querySelector("body").style.transform = "rotate(-90deg)"      
+} else { }
+
 const ced = document.querySelector(".ced");
 const ctr = document.querySelector(".ctr");
 const boton = document.querySelector(".boton");

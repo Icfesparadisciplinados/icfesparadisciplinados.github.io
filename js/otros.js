@@ -41,10 +41,11 @@ function superHover(nombre, srcNor, srcHov, colorNor, colorHov) {
 }
 
 function supSupHover() {
+  superHover("gui", "/img/gui.svg", "/img/guiHV.svg", "#fff", "#004fa7");
   superHover("con", "/img/con.svg", "/img/conHV.svg", "#fff", "#004fa7");
   superHover("pag", "/img/pag.svg", "/img/pagHV.svg", "#fff", "#004fa7");
   superHover("ref", "/img/ref.svg", "/img/refHV.svg", "#fff", "#004fa7");
-  superHover("des", "/img/des.svg", "/img/desHV.svg", "#fff", "#004fa7");
+  superHover("des", "/img/des.svg", "/img/desHV.svg", "#fff", "#004fa7");  
 }
 
 supSupHover();
@@ -60,12 +61,16 @@ function auxAjustarHover(tipo, color) {
 function ajustarHover(tipo, ref) {
   document.querySelector(ref).addEventListener("click", function () {
     supSupHover();
-    for (const tipos of ["con", "pag", "ref", "des"]) {
+    for (const tipos of ["gui", "con", "pag", "ref", "des"]) {
       if (tipos !== tipo) {
         cambiarImagen2(tipos, "#fff");
       }
     }
     switch (tipo) {
+      case "gui":
+        makeContenido(".contGui");
+        auxAjustarHover(tipo, "#004fa7");
+        break;
       case "con":
         makeContenido(".contCon");
         auxAjustarHover(tipo, "#004fa7");
@@ -86,17 +91,26 @@ function ajustarHover(tipo, ref) {
   });
 }
 
+ajustarHover("gui", ".guiTex");
 ajustarHover("con", ".conTex");
 ajustarHover("pag", ".pagTex");
 ajustarHover("ref", ".refTex");
 ajustarHover("des", ".desTex");
+ajustarHover("gui", ".gui");
 ajustarHover("con", ".con");
 ajustarHover("pag", ".pag");
 ajustarHover("ref", ".ref");
 ajustarHover("des", ".des");
 
+for (let i of [".contCon", ".contPag", ".contRef", ".contDes", ".contGui"]) {
+  const auxiliar = document.querySelector(i);
+  auxiliar.style.display = "none";
+}
+
+// makeContenido(".contGui");
+
 function makeContenido(tipo) {
-  for (let i of [".contCon", ".contPag", ".contRef", ".contDes"]) {
+  for (let i of [".contCon", ".contPag", ".contRef", ".contDes", ".contGui"]) {
     const auxiliar = document.querySelector(i);
     auxiliar.style.display = "none";
   }
@@ -118,18 +132,23 @@ function ajustarTitulo(nombre) {
   });
 }
 
-ajustarTitulo("titulo1");
-ajustarTitulo("titulo2");
-ajustarTitulo("t1");
-ajustarTitulo("t2");
-ajustarTitulo("t3");
-ajustarTitulo("t4");
-ajustarTitulo("t5");
-ajustarTitulo("t6");
-ajustarTitulo("t7");
-ajustarTitulo("t8");
-ajustarTitulo("t9");
-ajustarTitulo("t10");
+["lectura" 
+,"lectura1" ,"l11" ,"l12" ,"l13" 
+,"lectura2" ,"l21" ,"l22" ,"l23" 
+,"lectura3" ,"l31" ,"l32" ,"l33" ,"l34" 
+,"lectura4" ,"l41" ,"l42" ,"l43" ,"l44" 
+,"lectura5","l51"
+,"lecturainfo" 
+,"matematicas" 
+,"sociales" 
+,"naturales" 
+,"ingles" 
+,"horarios" 
+,"enfoque" 
+,"info" 
+,"titulo1" ,"titulo2" ,"t1" ,"t2" ,"t3" ,"t4" ,"t5" ,"t6" ,"t7" ,"t8" ,"t9" ,"t10"].forEach((element) => {
+  ajustarTitulo(element);
+})
 
 function ajustarHoverReferencias(nombre) {
   const con = document.querySelector(`.${nombre}`);
@@ -159,45 +178,3 @@ ajustarHoverReferencias("abel");
 ajustarHoverReferencias("formarte");
 ajustarHoverReferencias("milton");
 ajustarHoverReferencias("calenda");
-
-const descargarTodo = document.querySelector(".descargarTodo");
-
-descargarTodo.addEventListener("click", () => {
-  descargarTodo.textContent = allCarpetas();
-  downloadFolder("https://drive.google.com/drive/folders/1Scu0KSyF61SWGlwY8bRkP7-evy2YNp0B");
-});
-
-// function downloadFolder(folderLink) {
-//   var xhr = new XMLHttpRequest();  
-//   xhr.open("GET", folderLink, true);  
-//   xhr.onreadystatechange = function() {    
-//     if (xhr.readyState === 4 && xhr.status === 200) {      
-//       var response = xhr.responseText;      
-//       var json = JSON.parse(response);      
-//       for (var i = 0; i < json.files.length; i++) {        
-//         var fileName = json.files[i].name;        
-//         var fileLink = json.files[i].alternateLink;        
-//         downloadFile(fileLink, fileName);
-//       }
-//     }
-//   };
-//   xhr.send();
-// }
-
-// function downloadFile(fileLink, fileName) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.open("GET", fileLink, true);
-//   xhr.responseType = "arraybuffer";
-//   xhr.onreadystatechange = function() {
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-//       var fileData = xhr.response;
-//       var blob = new Blob([fileData], {type: fileLink.split("/").pop()});
-//       var url = window.URL.createObjectURL(blob);
-//       var a = document.createElement("a");
-//       a.href = url;
-//       a.download = fileName;
-//       a.click();
-//     }
-//   };  
-//   xhr.send();
-// }
