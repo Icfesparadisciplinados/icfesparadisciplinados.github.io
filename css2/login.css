@@ -41,7 +41,7 @@
   border: 3px solid #004fa7;  
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) { */
   body {
     background-image: url("/img/logoicfes.svg");
     background-size: 6rem;
@@ -102,20 +102,21 @@
   
   .masOpcBot {
     position: absolute;
-    bottom: 15px;
+    top: 300px;
     left: 15px;
     width: 30px;
     height: 30px;  
-    color: #fff;
+    color: #ff5;
     border-radius: 5px;
     cursor: pointer;
   }
   
   .masOpc{
     position: absolute;
-    bottom: 55px;
+    top: 200px;
     left: -180px;  
   }
+
   .masOpcOpc {
     cursor: pointer;
   }
@@ -169,4 +170,4 @@
     padding: 10px;
     padding-bottom: 30px;
   }
-}
+/* } */

@@ -101,7 +101,7 @@ input:focus {
 
 .masOpcBot {
   position: absolute;
-  bottom: 15px;
+  top: 375px;
   left: 15px;
   width: 30px;
   height: 30px;  
@@ -112,7 +112,7 @@ input:focus {
 
 .masOpc{
   position: absolute;
-  bottom: 55px;
+  top: 200px;
   left: -180px;  
 }
 .masOpcOpc {

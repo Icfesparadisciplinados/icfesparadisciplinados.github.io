@@ -4,9 +4,9 @@ sessionStorage.setItem("logeado", "false")
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-if (isMobile) {
-  document.querySelector("body").style.transform = "rotate(-90deg)"      
-} else { }
+// if (isMobile) {
+//   document.querySelector("body").style.transform = "rotate(-90deg)"      
+// } else { }
 
 const ced = document.querySelector(".ced");
 const ctr = document.querySelector(".ctr");
@@ -106,8 +106,7 @@ async function comprobar() {
         }
       }
     }
-  }
-  // verf.textContent = valorActual;
+  }  
   verf.textContent = "Iniciando sección";
 }
 
@@ -140,6 +139,7 @@ button2.addEventListener("click", () => {
 
 const masOpcBot = document.querySelector(".masOpcBot");
 const indicador = document.getElementById("indicador");
+
 masOpcBot.addEventListener("click", (event) => {
   if (indicador.textContent == "open") {
     indicador.textContent = "close";
