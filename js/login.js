@@ -155,7 +155,7 @@ masOpcBot.addEventListener("click", (event) => {
   } else {
     indicador.textContent = "open";
     gsap.to(masOpcBot, {
-      rotate: 225,
+      rotate: -225,
       duration: 1,
     });
     gsap.to(".masOpc", {

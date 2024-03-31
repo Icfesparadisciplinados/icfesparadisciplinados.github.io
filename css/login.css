@@ -99,9 +99,13 @@ input:focus {
   position: absolute;    
 }
 
-.masOpcBot {
+.contMasOpc {
   position: absolute;
-  top: 375px;
+  top: 15px;
+  left: 0px;
+}
+
+.masOpcBot {
   left: 15px;
   width: 30px;
   height: 30px;  
@@ -110,11 +114,10 @@ input:focus {
   cursor: pointer;
 }
 
-.masOpc{
-  position: absolute;
-  top: 200px;
+.masOpc{  
   left: -180px;  
 }
+
 .masOpcOpc {
   cursor: pointer;
 }

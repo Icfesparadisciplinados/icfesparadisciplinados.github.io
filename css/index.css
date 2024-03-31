@@ -105,9 +105,13 @@ a {
   cursor: default;
 }
 
-.masOpcBot {
+.contMasOpc {
   position: absolute;
-  bottom: 15px;
+  top: 15px;
+  left: 0px;
+}
+
+.masOpcBot {
   left: 15px;
   width: 30px;
   height: 30px;  
@@ -116,11 +120,11 @@ a {
   cursor: pointer;
 }
 
-.masOpc{
-  position: absolute;
-  bottom: 55px;
+.masOpc{  
   left: -180px;  
 }
+
+
 .masOpcOpc {
   cursor: pointer;
 }
